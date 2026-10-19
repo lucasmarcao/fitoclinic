@@ -1,0 +1,12 @@
+
+bom dia rhayyyy, tenho novidadesss.
+
+aumentei os detalhes da page inicial !!!
+
+também fiz a conexão com o banco de dados !!!
+
+criei a tabela e a pagina user !!!
+
+Ela já lista, cria , atualiza e deleta users !!
+
+por enquanto é isso, tchau tchau :)
