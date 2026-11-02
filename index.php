@@ -14,6 +14,11 @@
 <body>
     <div class="app-shell">
         <aside class="sidebar" id="sidebar">
+            <!-- Botão de fechar: visível apenas no mobile -->
+            <button type="button" class="sidebar-close" id="sidebarClose" aria-label="Fechar menu">
+                <span class="bi bi-x-lg"></span>
+            </button>
+
             <div class="brand">
                 <div class="brand-mark" aria-hidden="true">
                     <span class="brand-r"></span>

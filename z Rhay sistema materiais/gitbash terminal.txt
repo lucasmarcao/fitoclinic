@@ -1,0 +1,94 @@
+Seguinte Galerinha: 
+Voce vai digitar esses comando no seu terminal na ordem CERTA.
+
+terminal : escolhe o GitBash.
+
+primeiro de tudo : Vai no gitHub e cria um repositorio PUBLICO(tem q ser publico)
+com o nome de exemplo_github_x
+(tem que ser esse nome pros comandos no git bash funcionar)
+
+Guia: (copie e cole no terminal o que for um comando.)
+
+1-	echo "# exemplo_github_x" >> README.md
+
+2-	git init
+
+3-	git add README.md
+
+4- 	git commit -m "Primeiro Commit"
+
+5-	git branch -M main
+
+6-	git remote add origin https://github.com/(SUACONTA)/exemplo_github_x.git
+
+7-	git push -u origin main
+
+8-	git add .
+
+9-	git commit -am "main: manda pro git"
+
+10-	git push origin main
+
+11 -	git checkout -b (OUTRA_BRANCH_EXEMPLO)
+
+
+12-	git checkout SUAbranch   // pra entrar em branch que já existe
+
+
+Apenas pra mandar o que vc ja fez pra main:
+
+1-	git add .
+
+2-	git commit -am "SUA_BRANCH : TEXTO_DO_QUE_FEZ"
+
+3-	git push origin SUA_BRANCH
+
+
+Quando vc quer trazer as coisas da (main) pra sua branch:
+
+1-	git fetch origin
+2-	git merge origin/main
+
+
+Para criar um package.json decente:
+
+1-	npm init -y
+
+algumas dicas:
+git branch	-> Primeiro, verifique em qual branch você está atualmente.
+git fetch origin	-> Busque as últimas alterações do repositório remoto.
+
+Para criar ou crud branchs:
+- listar as locais:        git branch
+- listar as remotas:    git branch -a
+- criar:                        git branch nome-da-branch
+- entrar:                      git checkout -b nome-da-branch      // cria e entra
+- excluir:                     git branch -d nome-da-branch
+- alterar:                     git branch -m nome-antigo novo-nome
+
+
+Para iniciar uma aplicação nextJS tipescript.
+    -   npm install
+    -   npm run dev
+    - 
+
+Pra usar o docker nas coisas:
+    -  docker-compose
+    -  docker build  
+
+Pra mandar o commit direto pra Issue:
+    -  git add .
+    -  git commit -am " SUA_BRANCH  : TEXTO_DO_QUE_FEZ (ref #17)"
+    -  git push origin SUA_BRANCH
+    -  
+
+
+(EXTRA) : git clone https://github.com/Guilherme-Saides-Serbai/projectAPI.git
+// pra clonar projeto dos zotro
+
+Pra desfazer o seu git PULL, faça isso:
+
+   - git reflog
+   - git reset --hard HEAD@{1}
+
+

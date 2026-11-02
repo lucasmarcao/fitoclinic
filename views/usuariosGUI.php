@@ -22,7 +22,7 @@ function renderUsuarioGUI(array $usuarios, array $mensagens = [], ?Usuario $usua
         return ($isEdicao && $usuarioEdicao->papel === $papel) ? 'selected' : '';
     };
     $chkAtivo = (!$isEdicao || $usuarioEdicao->ativo) ? 'checked' : '';
-    ?>
+?>
     <!DOCTYPE html>
     <html lang="pt-BR">
 
@@ -42,35 +42,39 @@ function renderUsuarioGUI(array $usuarios, array $mensagens = [], ?Usuario $usua
 
             <!-- ============ SIDEBAR (desktop) ============ -->
             <aside class="sidebar" id="sidebar">
-                <nav class="nav">
-                    <div class="brand">
-                        <div class="brand-mark" aria-hidden="true">
-                            <span class="brand-r"></span>
-                        </div>
-                        <div>
-                            <strong>Fito Clinic</strong>
-                            <small>& Estética</small>
-                        </div>
-                    </div>
+                <!-- Botão de fechar: visível apenas no mobile -->
+                <button type="button" class="sidebar-close" id="sidebarClose" aria-label="Fechar menu">
+                    <span class="bi bi-x-lg"></span>
+                </button>
 
-                    <div class="profile-mini">
-                        <div class="avatar">RL</div>
-                        <div>
-                            <strong>Rhayane Lopes</strong>
-                            <small>Profissional</small>
-                        </div>
+                <div class="brand">
+                    <div class="brand-mark" aria-hidden="true">
+                        <span class="brand-r"></span>
                     </div>
-                    <a class="nav-item" href="../index.php"><span class="bi bi-house"></span> Início</a>
-                    <a class="nav-item" href="#"><span class="bi bi-calendar-event"></span> Agenda</a>
-                    <a class="nav-item" href="#"><span class="bi bi-people"></span> Pacientes</a>
-                    <a class="nav-item" href="#"><span class="bi bi-file-medical"></span> Prontuários</a>
-                    <a class="nav-item" href="#"><span class="bi bi-pencil"></span> Prescrições</a>
-                    <a class="nav-item" href="#"><span class="bi bi-currency-dollar"></span> Financeiro</a>
-                    <a class="nav-item" href="#"><span class="bi bi-box"></span> Estoque</a>
-                    <a class="nav-item" href="#"><span class="bi bi-whatsapp"></span> WhatsApp</a>
-                    <a class="nav-item active" href="usuariosPage.php">
-                        <span class="bi bi-person-badge"></span> Usuários
-                    </a>
+                    <div>
+                        <strong>Fito Clinic</strong>
+                        <small>& Estética</small>
+                    </div>
+                </div>
+
+                <div class="profile-mini">
+                    <div class="avatar">RL</div>
+                    <div>
+                        <strong>Rhayane Lopes</strong>
+                        <small>Profissional</small>
+                    </div>
+                </div>
+
+                <nav class="nav">
+                    <a class="nav-item active" href="/#inicio"><span class="bi bi-house"></span> Início</a>
+                    <a class="nav-item" href="#agenda"><span class="bi bi-calendar-event"></span> Agenda</a>
+                    <a class="nav-item" href="../pages/pacientesPage.php"><span class="bi bi-people"></span> Pacientes</a>
+                    <a class="nav-item" href="#prontuarios"><span class="bi bi-file-medical"></span> Prontuários</a>
+                    <a class="nav-item" href="#prescricoes"><span class="bi bi-pencil"></span> Prescrições</a>
+                    <a class="nav-item" href="#financeiro"><span class="bi bi-currency-dollar"></span> Financeiro</a>
+                    <a class="nav-item" href="#estoque"><span class="bi bi-box"></span> Estoque</a>
+                    <a class="nav-item" href="#mensagens"><span class="bi bi-whatsapp"></span> WhatsApp</a>
+                    <a class="nav-item" href="#configuracoes"><span class="bi bi-gear"></span> Configurações</a>
                 </nav>
 
                 <div class="sidebar-footer">
@@ -81,17 +85,18 @@ function renderUsuarioGUI(array $usuarios, array $mensagens = [], ?Usuario $usua
                             <small>Central de suporte</small>
                         </div>
                     </div>
-                    <small class="copyright">Fito Clinic &amp; Estética</small>
+                    <small class="copyright">Fito Clinic & Estética</small>
                 </div>
             </aside>
+
+
 
             <!-- ============ CONTEÚDO ============ -->
             <main class="main">
 
                 <!-- Topbar -->
                 <header class="topbar">
-                    <button class="menu-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#menuOffcanvas"
-                        aria-label="Abrir menu">
+                    <button class="menu-btn" type="button" id="menuBtn" aria-label="Abrir menu">
                         <span class="bi bi-list"></span>
                     </button>
 
@@ -134,8 +139,8 @@ function renderUsuarioGUI(array $usuarios, array $mensagens = [], ?Usuario $usua
                 <?php foreach ($mensagens as $m): ?>
                     <div class="alert-fito alert-<?= $escapar($m['tipo']) ?> mb-3" role="alert">
                         <i class="bi <?= $m['tipo'] === 'sucesso'
-                            ? 'bi-check-circle-fill'
-                            : 'bi-exclamation-triangle-fill' ?>"></i>
+                                            ? 'bi-check-circle-fill'
+                                            : 'bi-exclamation-triangle-fill' ?>"></i>
                         <span><?= $escapar($m['texto']) ?></span>
                     </div>
                 <?php endforeach; ?>
@@ -375,30 +380,7 @@ function renderUsuarioGUI(array $usuarios, array $mensagens = [], ?Usuario $usua
             </main>
         </div>
 
-        <!-- ============ OFFCANVAS (menu mobile) ============ -->
-        <div class="offcanvas offcanvas-start offcanvas-fito" tabindex="-1" id="menuOffcanvas">
-            <div class="offcanvas-header">
-                <h5 class="offcanvas-title">
-                    <span class="text-fito-green" style="font-family: Georgia, serif;">Fito Clinic</span>
-                </h5>
-                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Fechar"></button>
-            </div>
-            <div class="offcanvas-body">
-                <nav class="nav">
-                    <a class="nav-item" href="../index.php"><span class="bi bi-house"></span> Início</a>
-                    <a class="nav-item" href="#"><span class="bi bi-calendar-event"></span> Agenda</a>
-                    <a class="nav-item" href="#"><span class="bi bi-people"></span> Pacientes</a>
-                    <a class="nav-item" href="#"><span class="bi bi-file-medical"></span> Prontuários</a>
-                    <a class="nav-item" href="#"><span class="bi bi-pencil"></span> Prescrições</a>
-                    <a class="nav-item" href="#"><span class="bi bi-currency-dollar"></span> Financeiro</a>
-                    <a class="nav-item" href="#"><span class="bi bi-box"></span> Estoque</a>
-                    <a class="nav-item" href="#"><span class="bi bi-whatsapp"></span> WhatsApp</a>
-                    <a class="nav-item active" href="usuariosPage.php">
-                        <span class="bi bi-person-badge"></span> Usuários
-                    </a>
-                </nav>
-            </div>
-        </div>
+
 
         <!-- ============ MODAL DE EXCLUSÃO ============ -->
         <div class="modal fade" id="modalExcluir" tabindex="-1" aria-hidden="true">
@@ -431,9 +413,10 @@ function renderUsuarioGUI(array $usuarios, array $mensagens = [], ?Usuario $usua
         </div>
 
         <script src="../bootstrap/js/bootstrap.js"></script>
+        <script src="../js/app.js"></script>
         <script>
             // Popula o modal de exclusão com dados do botão clicado
-            document.getElementById('modalExcluir').addEventListener('show.bs.modal', function (event) {
+            document.getElementById('modalExcluir').addEventListener('show.bs.modal', function(event) {
                 const botao = event.relatedTarget;
                 document.getElementById('idUsuarioExcluir').value = botao.getAttribute('data-usuario-id');
                 document.getElementById('nomeUsuarioExcluir').textContent = botao.getAttribute('data-usuario-nome');
@@ -441,11 +424,14 @@ function renderUsuarioGUI(array $usuarios, array $mensagens = [], ?Usuario $usua
 
             // Em modo edição, rola suavemente até o formulário e destaca o card
             <?php if ($isEdicao): ?>
-                document.getElementById('formUsuario').scrollIntoView({ behavior: 'smooth', block: 'start' });
+                document.getElementById('formUsuario').scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
             <?php endif; ?>
         </script>
     </body>
 
     </html>
-    <?php
+<?php
 }

@@ -58,9 +58,10 @@ class BdConexao
 
             // 3) Garante a existência da tabela "usuarios"
             Usuario::criarTabelaSeNaoExistir(self::$conexao);
+            // PRECISA EM TODOS
+            Paciente::criarTabelaSeNaoExistir(self::$conexao);
 
             return self::$conexao;
-
         } catch (PDOException $e) {
             http_response_code(500);
             die('Erro ao conectar/criar o banco de dados: ' . $e->getMessage());
