@@ -1,0 +1,139 @@
+/* ---------- Estilos específicos do dashboard ---------- */
+.module-card {
+    background: rgba(255, 253, 248, 0.92);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    height: 100%;
+    transition: 0.2s;
+    text-decoration: none;
+    color: var(--ink);
+}
+
+.module-card:hover {
+    transform: translateY(-3px);
+    border-color: var(--gold-2);
+    box-shadow: 0 10px 30px rgba(86, 62, 25, 0.1);
+    color: var(--green);
+}
+
+.atalhos-margin {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.module-icon {
+    width: 46px;
+    height: 46px;
+    border-radius: 12px;
+    display: grid;
+    place-items: center;
+    background: var(--green-soft);
+    color: var(--green);
+    font-size: 1.25rem;
+}
+
+.module-icon.gold {
+    background: #f4ead9;
+    color: var(--gold);
+}
+
+.module-card strong {
+    font-family: Georgia, serif;
+    color: var(--green);
+    font-size: 1.05rem;
+}
+
+.module-card small {
+    color: var(--muted);
+    line-height: 1.4;
+}
+
+.module-arrow {
+    margin-top: auto;
+    color: var(--gold);
+    font-weight: 700;
+    font-size: 0.9rem;
+}
+
+.tech-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--cream-3);
+    color: var(--green);
+    border: 1px solid var(--line);
+    padding: 5px 12px;
+    border-radius: 999px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    margin: 4px 4px 0 0;
+}
+
+.progress-fito {
+    height: 10px;
+    background: var(--cream-3);
+    border-radius: 999px;
+    overflow: hidden;
+}
+
+.progress-fito > .bar {
+    height: 100%;
+    background: linear-gradient(90deg, var(--gold-2), var(--green-2));
+    border-radius: 999px;
+    transition: width 0.6s;
+}
+
+.accordion-button {
+    background: rgba(255, 253, 248, 0.92);
+    color: var(--green);
+    font-weight: 600;
+    border-radius: 12px !important;
+    border: 1px solid var(--line);
+    padding: 14px 18px;
+    margin-bottom: 6px;
+}
+
+.accordion-button:not(.collapsed) {
+    background: var(--cream-3);
+    color: var(--green);
+    box-shadow: none;
+}
+
+.accordion-button:focus {
+    box-shadow: 0 0 0 3px rgba(216, 179, 106, 0.25);
+}
+
+.accordion-body {
+    background: rgba(255, 253, 248, 0.7);
+    border: 1px dashed var(--line);
+    border-radius: 12px;
+    color: var(--ink);
+    font-size: 0.92rem;
+    line-height: 1.6;
+}
+
+.accordion-item {
+    border: 0;
+    background: transparent;
+}
+
+.swatch {
+    text-align: center;
+    width: 100%;
+    border-radius: 10px;
+    border: 1px solid var(--line);
+    display: grid;
+    place-items: end center;
+    padding: 6px;
+    font-size: 0.72rem;
+    color: #fff;
+    font-weight: 600;
+}
+
+.swatch.light {
+    color: var(--ink);
+}

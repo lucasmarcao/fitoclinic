@@ -36,7 +36,7 @@ O sistema segue uma arquitetura limpa inspirada em MVC (Model-View-Controller) a
 ├── controller/          # Camada de Regra de Negócio / DAOs (Data Access Objects)
 ├── css/                 # Folhas de estilo customizadas e integração Bootstrap
 ├── docs.md              # Documentação técnica e guias de referência rápida
-├── img/                 # Ativos visuais (logos, favicons)
+├── media/img/           # Ativos visuais (logos, favicons)
 ├── index.php            # Página inicial / Dashboard principal do painel
 ├── js/                  # Scripts de interatividade no frontend (app.js)
 ├── main.php             # Ponto de entrada centralizado do ecossistema
@@ -44,7 +44,7 @@ O sistema segue uma arquitetura limpa inspirada em MVC (Model-View-Controller) a
 ├── pages/               # Controladores de página (processamento de requisições HTTP)
 ├── sql/                 # Scripts DDL e dumps do banco de dados MySQL
 ├── views/               # Camada de Apresentação / GUIs (Interfaces HTML/PHP)
-└── z Rhay sistema ...   # Materiais de referência, paleta de cores e rascunhos da cliente
+└── MATERIAIS do SISTEMA # Materiais de referência, paleta de cores e rascunhos da cliente
 ```
 
 ---

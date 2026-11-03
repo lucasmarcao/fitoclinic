@@ -21,14 +21,14 @@
 /* Thin 100 */
 @font-face {
     font-family: "PoppinsLocal";
-    src: url("../fonts/poppins/Poppins-Thin.ttf") format("truetype");
+    src: url("../media/fonts/poppins/Poppins-Thin.ttf") format("truetype");
     font-weight: 100;
     font-style: normal;
     font-display: swap;
 }
 @font-face {
     font-family: "PoppinsLocal";
-    src: url("../fonts/poppins/Poppins-ThinItalic.ttf") format("truetype");
+    src: url("../media/fonts/poppins/Poppins-ThinItalic.ttf") format("truetype");
     font-weight: 100;
     font-style: italic;
     font-display: swap;
@@ -37,14 +37,15 @@
 /* ExtraLight 200 */
 @font-face {
     font-family: "PoppinsLocal";
-    src: url("../fonts/poppins/Poppins-ExtraLight.ttf") format("truetype");
+    src: url("../media/fonts/poppins/Poppins-ExtraLight.ttf") format("truetype");
     font-weight: 200;
     font-style: normal;
     font-display: swap;
 }
 @font-face {
     font-family: "PoppinsLocal";
-    src: url("../fonts/poppins/Poppins-ExtraLightItalic.ttf") format("truetype");
+    src: url("../media/fonts/poppins/Poppins-ExtraLightItalic.ttf")
+        format("truetype");
     font-weight: 200;
     font-style: italic;
     font-display: swap;
@@ -53,14 +54,15 @@
 /* Light 300 */
 @font-face {
     font-family: "PoppinsLocal";
-    src: url("../fonts/poppins/Poppins-Light.ttf") format("truetype");
+    src: url("../media/fonts/poppins/Poppins-Light.ttf") format("truetype");
     font-weight: 300;
     font-style: normal;
     font-display: swap;
 }
 @font-face {
     font-family: "PoppinsLocal";
-    src: url("../fonts/poppins/Poppins-LightItalic.ttf") format("truetype");
+    src: url("../media/fonts/poppins/Poppins-LightItalic.ttf")
+        format("truetype");
     font-weight: 300;
     font-style: italic;
     font-display: swap;
@@ -69,14 +71,14 @@
 /* Regular 400 */
 @font-face {
     font-family: "PoppinsLocal";
-    src: url("../fonts/poppins/Poppins-Regular.ttf") format("truetype");
+    src: url("../media/fonts/poppins/Poppins-Regular.ttf") format("truetype");
     font-weight: 400;
     font-style: normal;
     font-display: swap;
 }
 @font-face {
     font-family: "PoppinsLocal";
-    src: url("../fonts/poppins/Poppins-Italic.ttf") format("truetype");
+    src: url("../media/fonts/poppins/Poppins-Italic.ttf") format("truetype");
     font-weight: 400;
     font-style: italic;
     font-display: swap;
@@ -85,14 +87,15 @@
 /* Medium 500 */
 @font-face {
     font-family: "PoppinsLocal";
-    src: url("../fonts/poppins/Poppins-Medium.ttf") format("truetype");
+    src: url("../media/fonts/poppins/Poppins-Medium.ttf") format("truetype");
     font-weight: 500;
     font-style: normal;
     font-display: swap;
 }
 @font-face {
     font-family: "PoppinsLocal";
-    src: url("../fonts/poppins/Poppins-MediumItalic.ttf") format("truetype");
+    src: url("../media/fonts/poppins/Poppins-MediumItalic.ttf")
+        format("truetype");
     font-weight: 500;
     font-style: italic;
     font-display: swap;
@@ -101,14 +104,15 @@
 /* SemiBold 600 */
 @font-face {
     font-family: "PoppinsLocal";
-    src: url("../fonts/poppins/Poppins-SemiBold.ttf") format("truetype");
+    src: url("../media/fonts/poppins/Poppins-SemiBold.ttf") format("truetype");
     font-weight: 600;
     font-style: normal;
     font-display: swap;
 }
 @font-face {
     font-family: "PoppinsLocal";
-    src: url("../fonts/poppins/Poppins-SemiBoldItalic.ttf") format("truetype");
+    src: url("../media/fonts/poppins/Poppins-SemiBoldItalic.ttf")
+        format("truetype");
     font-weight: 600;
     font-style: italic;
     font-display: swap;
@@ -117,14 +121,14 @@
 /* Bold 700 */
 @font-face {
     font-family: "PoppinsLocal";
-    src: url("../fonts/poppins/Poppins-Bold.ttf") format("truetype");
+    src: url("../media/fonts/poppins/Poppins-Bold.ttf") format("truetype");
     font-weight: 700;
     font-style: normal;
     font-display: swap;
 }
 @font-face {
     font-family: "PoppinsLocal";
-    src: url("../fonts/poppins/Poppins-BoldItalic.ttf") format("truetype");
+    src: url("../media/fonts/poppins/Poppins-BoldItalic.ttf") format("truetype");
     font-weight: 700;
     font-style: italic;
     font-display: swap;
@@ -133,14 +137,15 @@
 /* ExtraBold 800 */
 @font-face {
     font-family: "PoppinsLocal";
-    src: url("../fonts/poppins/Poppins-ExtraBold.ttf") format("truetype");
+    src: url("../media/fonts/poppins/Poppins-ExtraBold.ttf") format("truetype");
     font-weight: 800;
     font-style: normal;
     font-display: swap;
 }
 @font-face {
     font-family: "PoppinsLocal";
-    src: url("../fonts/poppins/Poppins-ExtraBoldItalic.ttf") format("truetype");
+    src: url("../media/fonts/poppins/Poppins-ExtraBoldItalic.ttf")
+        format("truetype");
     font-weight: 800;
     font-style: italic;
     font-display: swap;
@@ -149,24 +154,52 @@
 /* Black 900 */
 @font-face {
     font-family: "PoppinsLocal";
-    src: url("../fonts/poppins/Poppins-Black.ttf") format("truetype");
+    src: url("../media/fonts/poppins/Poppins-Black.ttf") format("truetype");
     font-weight: 900;
     font-style: normal;
     font-display: swap;
 }
 @font-face {
     font-family: "PoppinsLocal";
-    src: url("../fonts/poppins/Poppins-BlackItalic.ttf") format("truetype");
+    src: url("../media/fonts/poppins/Poppins-BlackItalic.ttf")
+        format("truetype");
     font-weight: 900;
     font-style: italic;
     font-display: swap;
 }
 
 /* Poppins local - coloque este bloco no topo do seu styles.css */
+/* =========================================
+   Estilização Customizada da Barra de Rolagem
+   ========================================= */
 
+/* Para navegadores Firefox */
 * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--gold-2) var(--cream-3);
     box-sizing: border-box;
 }
+
+::-webkit-scrollbar {
+    width: 8px; /* Largura da barra vertical */
+    height: 8px; /* Altura da barra horizontal */
+}
+
+::-webkit-scrollbar-track {
+    background: var(--cream-2); /* Cor de fundo do trilho */
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--gold-2); /* Cor do "cursor" da rolagem */
+    border-radius: 4px;
+    border: 2px solid var(--cream-2); /* Efeito estético de margem interna */
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--gold); /* Cor ao passar o mouse por cima */
+}
+
 html {
     scroll-behavior: smooth;
 }
@@ -205,6 +238,7 @@ button {
     min-height: 100vh;
 }
 .sidebar {
+    overflow-y: auto;
     width: 260px;
     flex: 0 0 260px;
     background: rgba(255, 252, 246, 0.9);
@@ -217,6 +251,7 @@ button {
     height: 100vh;
 }
 .brand {
+    text-decoration: none;
     display: flex;
     align-items: center;
     gap: 11px;
@@ -243,7 +278,7 @@ button {
     position: absolute;
     left: 0;
     top: 0;
-    background: url("../img/logo.png");
+    background: url("../media/img/logo.png");
     background-size: contain;
     width: 75px;
     height: 75px;
@@ -345,7 +380,7 @@ button {
     font-weight: 700;
 }
 .sidebar-footer {
-    margin-top: auto;
+    margin-top: 12px;
 }
 .help-card {
     display: flex;
@@ -510,6 +545,11 @@ h2 {
     font-size: 18px;
     font-weight: 700;
     box-shadow: 0 8px 18px rgba(39, 75, 49, 0.16);
+}
+.btn-primary:hover {
+    transition: 0.6s;
+    background: var(--gold-soft);
+    color: var(--green);
 }
 .banner-decoration {
     width: 35%;
@@ -830,12 +870,17 @@ h2 {
 }
 .footer {
     display: flex;
+    margin-top: 25px;
     justify-content: space-between;
-    color: #a39a89;
+    border-top: var(--ink) 2px dotted;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    background: var(--gold-2);
+    padding: 10px 40px;
+    color: var(--ink);
     font:
         11px Georgia,
         serif;
-    padding: 22px 4px 6px;
 }
 .modal-backdrop {
     inset: 0;
@@ -929,8 +974,15 @@ h2 {
         padding: 18px;
     }
     .menu-btn {
+        /* background-color: var(--gold); */
+        border: 4px solid var(--line);
+        position: fixed;
+        z-index: 20;
+        bottom: 10px; /* Distância do fundo da tela */
+        right: 10px; /* Distância da direita da tela */
         display: inline-block;
     }
+
     .topbar {
         align-items: flex-start;
     }

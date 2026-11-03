@@ -58,8 +58,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Cadastro — Fito Clinic</title>
-    <link rel="stylesheet" href="../bootstrap/css/bootstrap.css" />
-    <link rel="stylesheet" href="../icons/bootstrap-icons.css" />
+    <link rel="stylesheet" href="../media/bootstrap/css/bootstrap.css" />
+    <link rel="stylesheet" href="../media/icons/bootstrap-icons.css" />
     <link rel="stylesheet" href="../css/styles.css" />
 </head>
 

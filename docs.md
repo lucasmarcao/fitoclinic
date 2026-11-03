@@ -26,7 +26,92 @@ mexer em C:/php/php.ini sempre que vc puder pra ativar driver e libs do php.
 
 ## LISTAR PROJETO:
 
-- tree -I "bootstrap|icons|fonts"
+Usuario@DESKTOP-53VHBNN MINGW64 ~/Documents/centro_vscode/zzz SOFTWARE GERAL DIVERSOS/fitoclinic (main)
+$ tree -I "media/bootstrap|media/icons|media/fonts"
+.
+├── MATERIAIS do SISTEMA
+│ ├── Others
+│ │ ├── oi rhay.txt
+│ │ └── zdocs.md
+│ ├── WhatsApp Image 2026-09-02 at 13.42.24.jpeg
+│ ├── WhatsApp Image 2026-09-02 at 13.42.52.jpeg
+│ ├── WhatsApp Image 2026-09-02 at 13.42.53.jpeg
+│ ├── cores paleta rhay.png
+│ ├── gitbash terminal.txt
+│ ├── grade de atendimentos.jpeg
+│ ├── paleta q a rhay quer.jpeg
+│ ├── rhay promptt.txt
+│ ├── rhay sis.txt
+│ └── sql
+│ ├── fito_clinc_bd.txt
+│ └── fito_clinic.sql
+├── README.md
+├── account
+│ ├── cadastro.php
+│ ├── conta.php
+│ └── login.php
+├── configs
+│ ├── authGuard.php
+│ ├── bdConexao.php
+│ └── cors.php
+├── controller
+│ ├── agendamentosDAO.php
+│ ├── comunicacoesDAO.php
+│ ├── documentosDAO.php
+│ ├── itens_estoqueDAO.php
+│ ├── itens_prescricaoDAO.php
+│ ├── pacientesDAO.php
+│ ├── prescricoesDAO.php
+│ ├── prontuariosDAO.php
+│ ├── transacoes_financeirasDAO.php
+│ └── usuariosDAO.php
+├── css
+│ ├── php.css
+│ └── styles.css
+├── docs.md
+├── index.php
+├── js
+│ └── app.js
+├── main.php
+├── media
+│ └── img
+│ ├── faviconrhay.png
+│ └── logo.png
+├── models
+│ ├── agendamentos.php
+│ ├── comunicacoes.php
+│ ├── documentos.php
+│ ├── itens_estoque.php
+│ ├── itens_prescricao.php
+│ ├── pacientes.php
+│ ├── prescricoes.php
+│ ├── prontuarios.php
+│ ├── transacoes_financeiras.php
+│ └── usuarios.php
+├── pages
+│ ├── agendamentosPage.php
+│ ├── comunicacoesPage.php
+│ ├── documentosPage.php
+│ ├── itens_estoquePage.php
+│ ├── itens_prescricaoPage.php
+│ ├── pacientesPage.php
+│ ├── prescricoesPage.php
+│ ├── prontuariosPage.php
+│ ├── transacoes_financeirasPage.php
+│ └── usuariosPage.php
+└── views
+├── agendamentosGUI.php
+├── comunicacoesGUI.php
+├── documentosGUI.php
+├── itens_estoqueGUI.php
+├── itens_prescricaoGUI.php
+├── pacientesGUI.php
+├── prescricoesGUI.php
+├── prontuariosGUI.php
+├── transacoes_financeirasGUI.php
+└── usuariosGUI.php
+
+14 directories, 68 files
 
 ## Do que se trata:
 

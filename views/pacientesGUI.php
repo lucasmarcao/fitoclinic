@@ -37,9 +37,9 @@ function renderPacienteGUI(
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title><?= $isEdicao ? 'Editar' : 'Novo' ?> paciente — Fito Clinic</title>
-        <link rel="shortcut icon" href="../img/faviconrhay.png" type="image/x-icon">
-        <link rel="stylesheet" href="../bootstrap/css/bootstrap.css" />
-        <link rel="stylesheet" href="../icons/bootstrap-icons.css" />
+        <link rel="shortcut icon" href="../media/img/faviconrhay.png" type="image/x-icon">
+        <link rel="stylesheet" href="../media/bootstrap/css/bootstrap.css" />
+        <link rel="stylesheet" href="../media/icons/bootstrap-icons.css" />
         <link rel="stylesheet" href="../css/styles.css" />
         <link rel="stylesheet" href="../css/php.css" />
     </head>
@@ -53,7 +53,7 @@ function renderPacienteGUI(
                     <span class="bi bi-x-lg"></span>
                 </button>
 
-                <div class="brand">
+                <a href="/" class="brand">
                     <div class="brand-mark" aria-hidden="true">
                         <span class="brand-r"></span>
                     </div>
@@ -61,7 +61,7 @@ function renderPacienteGUI(
                         <strong>Fito Clinic</strong>
                         <small>& Estética</small>
                     </div>
-                </div>
+                </a>
 
                 <div class="profile-mini">
                     <div class="avatar">RL</div>
@@ -72,15 +72,18 @@ function renderPacienteGUI(
                 </div>
 
                 <nav class="nav">
-                    <a class="nav-item" href="/#inicio"><span class="bi bi-house"></span> Início</a>
-                    <a class="nav-item" href="#agenda"><span class="bi bi-calendar-event"></span> Agenda</a>
-                    <a class="nav-item active" href="pacientesPage.php"><span class="bi bi-people"></span> Pacientes</a>
-                    <a class="nav-item" href="#prontuarios"><span class="bi bi-file-medical"></span> Prontuários</a>
-                    <a class="nav-item" href="#prescricoes"><span class="bi bi-pencil"></span> Prescrições</a>
-                    <a class="nav-item" href="#financeiro"><span class="bi bi-currency-dollar"></span> Financeiro</a>
-                    <a class="nav-item" href="#estoque"><span class="bi bi-box"></span> Estoque</a>
-                    <a class="nav-item" href="#mensagens"><span class="bi bi-whatsapp"></span> WhatsApp</a>
-                    <a class="nav-item" href="#configuracoes"><span class="bi bi-gear"></span> Configurações</a>
+                    <a class="nav-item active" href="/"><span class="bi bi-house"></span> Início</a>
+                    <a class="nav-item" href="../main.php"><span class="bi bi-bar-chart-steps"></span> Painel</a>
+                    <a class="nav-item" href="../pages/agendamentosPage.php"><span class="bi bi-calendar-event"></span> Agenda</a>
+                    <a class="nav-item" href="../pages/pacientesPage.php"><span class="bi bi-people"></span> Pacientes</a>
+                    <a class="nav-item" href="../pages/prontuariosPage.php"><span class="bi bi-file-medical"></span> Prontuários</a>
+                    <a class="nav-item" href="../pages/prescricoesPage.php"><span class="bi bi-pencil-square"></span> Prescrições</a>
+                    <a class="nav-item" href="../pages/itens_prescricaoPage.php"><span class="bi bi-list-check"></span> Itens de Prescrição</a>
+                    <a class="nav-item" href="../pages/transacoes_financeirasPage.php"><span class="bi bi-currency-dollar"></span> Financeiro</a>
+                    <a class="nav-item" href="../pages/itens_estoquePage.php"><span class="bi bi-box-seam"></span> Estoque</a>
+                    <a class="nav-item" href="../pages/comunicacoesPage.php"><span class="bi bi-whatsapp"></span> Comunicações</a>
+                    <a class="nav-item" href="../pages/documentosPage.php"><span class="bi bi-file-earmark-text"></span> Documentos</a>
+                    <a class="nav-item" href="../pages/usuariosPage.php"><span class="bi bi-person-badge"></span> Usuários</a>
                 </nav>
 
                 <div class="sidebar-footer">
@@ -516,7 +519,7 @@ function renderPacienteGUI(
             </div>
         </div>
 
-        <script src="../bootstrap/js/bootstrap.js"></script>
+        <script src="../media/bootstrap/js/bootstrap.js"></script>
         <script src="../js/app.js"></script>
         <script>
             document.getElementById('modalExcluirPaciente').addEventListener('show.bs.modal', function(event) {

@@ -4,6 +4,11 @@
 // - delega a criação da tabela "usuarios" para models/usuarios.php
 
 require_once __DIR__ . '/../models/usuarios.php';
+require_once __DIR__ . '/../models/pacientes.php';
+require_once __DIR__ . '/../models/agendamentos.php';
+require_once __DIR__ . '/../models/prontuarios.php';
+require_once __DIR__ . '/../models/prescricoes.php';
+
 
 class BdConexao
 {
@@ -56,10 +61,16 @@ class BdConexao
 
             self::$conexao = new PDO($dsnBanco, self::USUARIO, self::SENHA, $opcoes);
 
-            // 3) Garante a existência da tabela "usuarios"
+            // 1  3) Garante a existência da tabela "usuarios"
             Usuario::criarTabelaSeNaoExistir(self::$conexao);
-            // PRECISA EM TODOS
+            // 2 -- PRECISA EM TODOS
             Paciente::criarTabelaSeNaoExistir(self::$conexao);
+            // 3 -- Agendamento
+            Agendamento::criarTabelaSeNaoExistir(self::$conexao);
+            // 4 -- Prontuario
+            Prontuario::criarTabelaSeNaoExistir(self::$conexao);
+            // 5 -- prescricoes
+            Prescricao::criarTabelaSeNaoExistir(self::$conexao);
 
             return self::$conexao;
         } catch (PDOException $e) {
