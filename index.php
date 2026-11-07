@@ -30,13 +30,13 @@
                 </div>
             </a>
 
-            <div class="profile-mini">
-                <div class="avatar">RL</div>
+            <a href="../account/login.php" class="profile-mini" style="text-decoration: none;">
+                <div class="avatar"><i class="bi bi-person-circle"></i></div>
                 <div>
-                    <strong>Rhayane Lopes</strong>
+                    <strong>Conta | Login</strong>
                     <small>Profissional</small>
                 </div>
-            </div>
+            </a>
 
             <nav class="nav">
                 <a class="nav-item active" href="/"><span class="bi bi-house"></span> Início</a>
@@ -79,8 +79,8 @@
                         <span class="bi bi-bell"></span>
                     </button>
                     <a class="profile-btn anti-links" href="/pages/usuariosPage.php">
-                        <span class="avatar small">RL</span>
-                        <span>Rhayane Lopes</span>
+                        <span class="avatar small"><i class="bi bi-person-circle"></i></span>
+                        <span>Conta | Login</span>
                         <span class="bi bi-chevron-down"></span>
                     </a>
                 </div>

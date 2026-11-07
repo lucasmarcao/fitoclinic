@@ -1010,13 +1010,13 @@ function renderPrescricaoGUI(
                     </div>
                 </a>
 
-                <div class="profile-mini">
-                    <div class="avatar">RL</div>
+                <a href="../account/login.php" class="profile-mini" style="text-decoration: none;">
+                    <div class="avatar"><i class="bi bi-person-circle"></i></div>
                     <div>
-                        <strong>Rhayane Lopes</strong>
+                        <strong>Conta | Login</strong>
                         <small>Profissional</small>
                     </div>
-                </div>
+                </a>
 
                 <nav class="nav">
                     <a class="nav-item active" href="/"><span class="bi bi-house"></span> Início</a>
@@ -1079,8 +1079,8 @@ function renderPrescricaoGUI(
                         </button>
 
                         <button type="button" class="profile-btn">
-                            <span class="avatar small">RL</span>
-                            <span>Rhayane Lopes</span>
+                            <span class="avatar small"><i class="bi bi-person-circle"></i></span>
+                            <span>Conta | Login</span>
                             <span class="bi bi-chevron-down"></span>
                         </button>
 
@@ -1950,7 +1950,7 @@ function renderPrescricaoGUI(
             </main>
 
         </div>
-        <!-- OFFCANVAS --
+
 
         <div
             class="offcanvas offcanvas-end"
@@ -2006,7 +2006,7 @@ function renderPrescricaoGUI(
             </div>
 
         </div>
-        <!-- MODAL EMITIR --
+
 
         <div
             class="modal fade"
@@ -2097,7 +2097,6 @@ function renderPrescricaoGUI(
             </div>
 
         </div>
-        <!-- MODAL CANCELAR --
 
         <div
             class="modal fade"
@@ -2169,7 +2168,6 @@ function renderPrescricaoGUI(
             </div>
 
         </div>
-        <!-- MODAL EXCLUIR --
 
         <div
             class="modal fade"
@@ -2243,7 +2241,7 @@ function renderPrescricaoGUI(
             </div>
 
         </div>
-        <!-- JAVASCRIPT --
+
 
         <script src="../media/bootstrap/js/bootstrap.js"></script>
 

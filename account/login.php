@@ -51,37 +51,43 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <body>
     <div class="app-shell">
-        <!-- ============ SIDEBAR (desktop) ============ -->
+        <!-- ============ SIDEBAR ============ -->
         <aside class="sidebar" id="sidebar">
-            <nav class="nav">
-                <div class="brand">
-                    <div class="brand-mark" aria-hidden="true">
-                        <span class="brand-r"></span>
-                    </div>
-                    <div>
-                        <strong>Fito Clinic</strong>
-                        <small>& Estética</small>
-                    </div>
-                </div>
+            <button type="button" class="sidebar-close" id="sidebarClose" aria-label="Fechar menu">
+                <span class="bi bi-x-lg"></span>
+            </button>
 
-                <div class="profile-mini">
-                    <div class="avatar">RL</div>
-                    <div>
-                        <strong>Rhayane Lopes</strong>
-                        <small>Profissional</small>
-                    </div>
+            <a href="/" class="brand">
+                <div class="brand-mark" aria-hidden="true">
+                    <span class="brand-r"></span>
                 </div>
-                <a class="nav-item" href="../index.php"><span class="bi bi-house"></span> Início</a>
-                <a class="nav-item" href="#"><span class="bi bi-calendar-event"></span> Agenda</a>
-                <a class="nav-item" href="#"><span class="bi bi-people"></span> Pacientes</a>
-                <a class="nav-item" href="#"><span class="bi bi-file-medical"></span> Prontuários</a>
-                <a class="nav-item" href="#"><span class="bi bi-pencil"></span> Prescrições</a>
-                <a class="nav-item" href="#"><span class="bi bi-currency-dollar"></span> Financeiro</a>
-                <a class="nav-item" href="#"><span class="bi bi-box"></span> Estoque</a>
-                <a class="nav-item" href="#"><span class="bi bi-whatsapp"></span> WhatsApp</a>
-                <a class="nav-item active" href="usuariosPage.php">
-                    <span class="bi bi-person-badge"></span> Usuários
-                </a>
+                <div>
+                    <strong>Fito Clinic</strong>
+                    <small>& Estética</small>
+                </div>
+            </a>
+
+            <a href="../account/login.php" class="profile-mini" style="text-decoration: none;">
+                <div class="avatar"><i class="bi bi-person-circle"></i></div>
+                <div>
+                    <strong>Conta | Login</strong>
+                    <small>Profissional</small>
+                </div>
+            </a>
+
+            <nav class="nav">
+                <a class="nav-item active" href="/"><span class="bi bi-house"></span> Início</a>
+                <a class="nav-item" href="../main.php"><span class="bi bi-bar-chart-steps"></span> Painel</a>
+                <a class="nav-item" href="../pages/agendamentosPage.php"><span class="bi bi-calendar-event"></span> Agenda</a>
+                <a class="nav-item" href="../pages/pacientesPage.php"><span class="bi bi-people"></span> Pacientes</a>
+                <a class="nav-item" href="../pages/prontuariosPage.php"><span class="bi bi-file-medical"></span> Prontuários</a>
+                <a class="nav-item" href="../pages/prescricoesPage.php"><span class="bi bi-pencil-square"></span> Prescrições</a>
+                <a class="nav-item" href="../pages/itens_prescricaoPage.php"><span class="bi bi-list-check"></span> Itens de Prescrição</a>
+                <a class="nav-item" href="../pages/transacoes_financeirasPage.php"><span class="bi bi-currency-dollar"></span> Financeiro</a>
+                <a class="nav-item" href="../pages/itens_estoquePage.php"><span class="bi bi-box-seam"></span> Estoque</a>
+                <a class="nav-item" href="../pages/comunicacoesPage.php"><span class="bi bi-whatsapp"></span> Comunicações</a>
+                <a class="nav-item" href="../pages/documentosPage.php"><span class="bi bi-file-earmark-text"></span> Documentos</a>
+                <a class="nav-item" href="../pages/usuariosPage.php"><span class="bi bi-person-badge"></span> Usuários</a>
             </nav>
 
             <div class="sidebar-footer">
@@ -92,7 +98,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <small>Central de suporte</small>
                     </div>
                 </div>
-                <small class="copyright">Fito Clinic &amp; Estética</small>
+                <small class="copyright">Fito Clinic & Estética</small>
             </div>
         </aside>
         <div class="container centrom" style="margin-top: 30px; margin-bottom: 30px;">

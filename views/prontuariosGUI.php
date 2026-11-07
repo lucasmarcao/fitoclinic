@@ -258,13 +258,13 @@ function renderProntuarioGUI(
                     </div>
                 </a>
 
-                <div class="profile-mini">
-                    <div class="avatar">RL</div>
+                <a href="../account/login.php" class="profile-mini" style="text-decoration: none;">
+                    <div class="avatar"><i class="bi bi-person-circle"></i></div>
                     <div>
-                        <strong>Rhayane Lopes</strong>
+                        <strong>Conta | Login</strong>
                         <small>Profissional</small>
                     </div>
-                </div>
+                </a>
 
                 <nav class="nav">
                     <a class="nav-item active" href="/"><span class="bi bi-house"></span> Início</a>
@@ -306,16 +306,16 @@ function renderProntuarioGUI(
                         <h1><?= $isEdicao ? 'Editar prontuário' : 'Gestão de Prontuários' ?></h1>
                     </div>
 
-                    <div class="top-actions">
+                    <a href="../account/conta.php" class="top-actions" style="text-decoration: none;">
                         <button class="icon-btn" title="Notificações">
                             <span class="bi bi-bell"></span>
                         </button>
                         <button class="profile-btn">
-                            <span class="avatar small">RL</span>
-                            <span>Rhayane Lopes</span>
+                            <span class="avatar small"><i class="bi bi-person-circle"></i></span>
+                            <span>Conta | Login</span>
                             <span class="bi bi-chevron-down"></span>
                         </button>
-                    </div>
+                    </a>
                 </header>
 
                 <nav aria-label="breadcrumb">
