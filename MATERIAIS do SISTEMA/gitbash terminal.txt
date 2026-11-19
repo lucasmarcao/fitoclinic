@@ -43,6 +43,10 @@ Apenas pra mandar o que vc ja fez pra main:
 
 3-	git push origin SUA_BRANCH
 
+git add .
+git commit -am "main: atualizei front views."
+git push origin main
+
 
 Quando vc quer trazer as coisas da (main) pra sua branch:
 

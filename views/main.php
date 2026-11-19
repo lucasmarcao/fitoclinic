@@ -6,9 +6,9 @@ exit ; -->
 <?php
 // main.php — Painel principal / Dashboard administrativo
 
-require_once __DIR__ . '/configs/authGuard.php';
-require_once __DIR__ . '/configs/cors.php';
-require_once __DIR__ . '/configs/bdConexao.php';
+require_once __DIR__ . '/../configs/authGuard.php';
+require_once __DIR__ . '/../configs/cors.php';
+require_once __DIR__ . '/../configs/bdConexao.php';
 
 // =========================================================
 // Estatísticas (com fallback seguro — nunca quebra a página)
@@ -89,12 +89,12 @@ $diaSemana = ['Domingo', 'Segunda-feira', 'Terça-feira', 'Quarta-feira', 'Quint
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Painel Principal — Fito Clinic</title>
-  <link rel="shortcut icon" href="media/img/faviconrhay.png" type="image/x-icon">
-  <link rel="stylesheet" href="media/bootstrap/css/bootstrap.css" />
-  <link rel="stylesheet" href="media/icons/bootstrap-icons.css" />
-  <link rel="stylesheet" href="css/styles.css" />
-  <link rel="stylesheet" href="css/php.css" />
-  <link rel="stylesheet" href="css/main.css">
+  <link rel="shortcut icon" href="../media/img/faviconrhay.png" type="image/x-icon">
+  <link rel="stylesheet" href="../media/bootstrap/css/bootstrap.css" />
+  <link rel="stylesheet" href="../media/icons/bootstrap-icons.css" />
+  <link rel="stylesheet" href="../css/styles.css" />
+  <link rel="stylesheet" href="../css/php.css" />
+  <link rel="stylesheet" href="../css/main.css">
 </head>
 
 <body>
@@ -127,18 +127,20 @@ $diaSemana = ['Domingo', 'Segunda-feira', 'Terça-feira', 'Quarta-feira', 'Quint
       <nav class="nav">
         <a class="nav-item active" href="/"><span class="bi bi-house"></span> Início</a>
         <a class="nav-item" href="../main.php"><span class="bi bi-bar-chart-steps"></span> Painel</a>
-        <a class="nav-item" href="pages/agendamentosPage.php"><span class="bi bi-calendar-event"></span> Agenda</a>
-        <a class="nav-item" href="pages/pacientesPage.php"><span class="bi bi-people"></span> Pacientes</a>
-        <a class="nav-item" href="pages/prontuariosPage.php"><span class="bi bi-file-medical"></span> Prontuários</a>
-        <a class="nav-item" href="pages/prescricoesPage.php"><span class="bi bi-pencil-square"></span> Prescrições</a>
-        <a class="nav-item" href="pages/itens_prescricaoPage.php"><span class="bi bi-list-check"></span> Itens de
+        <a class="nav-item" href="../pages/agendamentosPage.php"><span class="bi bi-calendar-event"></span> Agenda</a>
+        <a class="nav-item" href="../pages/pacientesPage.php"><span class="bi bi-people"></span> Pacientes</a>
+        <a class="nav-item" href="../pages/prontuariosPage.php"><span class="bi bi-file-medical"></span> Prontuários</a>
+        <a class="nav-item" href="../pages/prescricoesPage.php"><span class="bi bi-pencil-square"></span>
+          Prescrições</a>
+        <a class="nav-item" href="../pages/itens_prescricaoPage.php"><span class="bi bi-list-check"></span> Itens de
           Prescrição</a>
-        <a class="nav-item" href="pages/transacoes_financeirasPage.php"><span class="bi bi-currency-dollar"></span>
+        <a class="nav-item" href="../pages/transacoes_financeirasPage.php"><span class="bi bi-currency-dollar"></span>
           Financeiro</a>
-        <a class="nav-item" href="pages/itens_estoquePage.php"><span class="bi bi-box-seam"></span> Estoque</a>
-        <a class="nav-item" href="pages/comunicacoesPage.php"><span class="bi bi-whatsapp"></span> Comunicações</a>
-        <a class="nav-item" href="pages/documentosPage.php"><span class="bi bi-file-earmark-text"></span> Documentos</a>
-        <a class="nav-item" href="pages/usuariosPage.php"><span class="bi bi-person-badge"></span> Usuários</a>
+        <a class="nav-item" href="../pages/itens_estoquePage.php"><span class="bi bi-box-seam"></span> Estoque</a>
+        <a class="nav-item" href="../pages/comunicacoesPage.php"><span class="bi bi-whatsapp"></span> Comunicações</a>
+        <a class="nav-item" href="../pages/documentosPage.php"><span class="bi bi-file-earmark-text"></span>
+          Documentos</a>
+        <a class="nav-item" href="../pages/usuariosPage.php"><span class="bi bi-person-badge"></span> Usuários</a>
       </nav>
 
       <div class="sidebar-footer">
@@ -181,7 +183,7 @@ $diaSemana = ['Domingo', 'Segunda-feira', 'Terça-feira', 'Quarta-feira', 'Quint
 
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb breadcrumb-fito">
-          <li class="breadcrumb-item"><a href="main.php">Início</a></li>
+          <li class="breadcrumb-item"><a href="../main.php">Início</a></li>
           <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
         </ol>
       </nav>
@@ -203,10 +205,10 @@ $diaSemana = ['Domingo', 'Segunda-feira', 'Terça-feira', 'Quarta-feira', 'Quint
           </p>
 
           <div class="d-flex flex-wrap gap-2 mt-3">
-            <a href="pages/agendamentosPage.php" class="btn btn-primary">
+            <a href="../pages/agendamentosPage.php" class="btn btn-primary">
               <i class="bi bi-calendar-plus"></i> Novo atendimento
             </a>
-            <a href="pages/pacientesPage.php" class="btn btn-primary">
+            <a href="../pages/pacientesPage.php" class="btn btn-primary">
               <i class="bi bi-person-plus"></i> Cadastrar paciente
             </a>
           </div>
@@ -230,28 +232,28 @@ $diaSemana = ['Domingo', 'Segunda-feira', 'Terça-feira', 'Quarta-feira', 'Quint
         </div>
         <div class="row g-3">
           <div class="col-md-6 col-lg-3">
-            <a href="pages/pacientesPage.php" class="module-card">
+            <a href="../pages/pacientesPage.php" class="module-card">
               <div class="module-icon gold"><span class="bi bi-person-plus"></span></div>
               <strong>Novo paciente</strong>
               <small>Cadastrar dados completos.</small>
             </a>
           </div>
           <div class="col-md-6 col-lg-3">
-            <a href="pages/agendamentosPage.php" class="module-card">
+            <a href="../pages/agendamentosPage.php" class="module-card">
               <div class="module-icon"><span class="bi bi-calendar-plus"></span></div>
               <strong>Novo agendamento</strong>
               <small>Reservar horário na agenda.</small>
             </a>
           </div>
           <div class="col-md-6 col-lg-3">
-            <a href="pages/prontuariosPage.php" class="module-card">
+            <a href="../pages/prontuariosPage.php" class="module-card">
               <div class="module-icon gold"><span class="bi bi-file-medical"></span></div>
               <strong>Novo prontuário</strong>
               <small>Registrar atendimento clínico.</small>
             </a>
           </div>
           <div class="col-md-6 col-lg-3">
-            <a href="pages/transacoes_financeirasPage.php" class="module-card">
+            <a href="../pages/transacoes_financeirasPage.php" class="module-card">
               <div class="module-icon"><span class="bi bi-cash-coin"></span></div>
               <strong>Lançar financeiro</strong>
               <small>Registrar receita ou despesa.</small>
@@ -312,7 +314,7 @@ $diaSemana = ['Domingo', 'Segunda-feira', 'Terça-feira', 'Quarta-feira', 'Quint
         <div class="row g-3">
           <?php foreach ($modulos as $i => $m): ?>
             <div class="col-12 col-sm-6 col-lg-4 col-xxl-3">
-              <a class="module-card" href="<?= htmlspecialchars($m['link'], ENT_QUOTES, 'UTF-8') ?>">
+              <a class="module-card" href="../<?= htmlspecialchars($m['link'], ENT_QUOTES, 'UTF-8') ?>">
                 <div class="module-icon <?= $i % 2 === 0 ? '' : 'gold' ?>">
                   <span class="bi <?= htmlspecialchars($m['icone'], ENT_QUOTES, 'UTF-8') ?>"></span>
                 </div>
@@ -333,8 +335,8 @@ $diaSemana = ['Domingo', 'Segunda-feira', 'Terça-feira', 'Quarta-feira', 'Quint
     </main>
   </div>
 
-  <script src="media/bootstrap/js/bootstrap.js"></script>
-  <script src="js/app.js"></script>
+  <script src="../media/bootstrap/js/bootstrap.js"></script>
+  <script src="../js/app.js"></script>
   <script>
     // ---- Sidebar mobile (compatível com app.js) ----
     (function () {
