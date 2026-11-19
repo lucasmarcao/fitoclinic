@@ -22,14 +22,16 @@ function renderPacienteGUI(
     $isEdicao = $pacienteEdicao !== null;
 
     $val = static function (string $campo) use ($isEdicao, $pacienteEdicao, $escapar) {
-        if (!$isEdicao) return '';
+        if (!$isEdicao)
+            return '';
         return $escapar($pacienteEdicao->$campo ?? '');
     };
     $selGenero = static function (string $gen) use ($isEdicao, $pacienteEdicao) {
-        if (!$isEdicao) return $gen === 'nao_informado' ? 'selected' : '';
+        if (!$isEdicao)
+            return $gen === 'nao_informado' ? 'selected' : '';
         return $pacienteEdicao->genero === $gen ? 'selected' : '';
     };
-?>
+    ?>
     <!DOCTYPE html>
     <html lang="pt-BR">
 
@@ -74,26 +76,35 @@ function renderPacienteGUI(
                 <nav class="nav">
                     <a class="nav-item active" href="/"><span class="bi bi-house"></span> Início</a>
                     <a class="nav-item" href="../main.php"><span class="bi bi-bar-chart-steps"></span> Painel</a>
-                    <a class="nav-item" href="../pages/agendamentosPage.php"><span class="bi bi-calendar-event"></span> Agenda</a>
+                    <a class="nav-item" href="../pages/agendamentosPage.php"><span class="bi bi-calendar-event"></span>
+                        Agenda</a>
                     <a class="nav-item" href="../pages/pacientesPage.php"><span class="bi bi-people"></span> Pacientes</a>
-                    <a class="nav-item" href="../pages/prontuariosPage.php"><span class="bi bi-file-medical"></span> Prontuários</a>
-                    <a class="nav-item" href="../pages/prescricoesPage.php"><span class="bi bi-pencil-square"></span> Prescrições</a>
-                    <a class="nav-item" href="../pages/itens_prescricaoPage.php"><span class="bi bi-list-check"></span> Itens de Prescrição</a>
-                    <a class="nav-item" href="../pages/transacoes_financeirasPage.php"><span class="bi bi-currency-dollar"></span> Financeiro</a>
-                    <a class="nav-item" href="../pages/itens_estoquePage.php"><span class="bi bi-box-seam"></span> Estoque</a>
-                    <a class="nav-item" href="../pages/comunicacoesPage.php"><span class="bi bi-whatsapp"></span> Comunicações</a>
-                    <a class="nav-item" href="../pages/documentosPage.php"><span class="bi bi-file-earmark-text"></span> Documentos</a>
-                    <a class="nav-item" href="../pages/usuariosPage.php"><span class="bi bi-person-badge"></span> Usuários</a>
+                    <a class="nav-item" href="../pages/prontuariosPage.php"><span class="bi bi-file-medical"></span>
+                        Prontuários</a>
+                    <a class="nav-item" href="../pages/prescricoesPage.php"><span class="bi bi-pencil-square"></span>
+                        Prescrições</a>
+                    <a class="nav-item" href="../pages/itens_prescricaoPage.php"><span class="bi bi-list-check"></span>
+                        Itens de Prescrição</a>
+                    <a class="nav-item" href="../pages/transacoes_financeirasPage.php"><span
+                            class="bi bi-currency-dollar"></span> Financeiro</a>
+                    <a class="nav-item" href="../pages/itens_estoquePage.php"><span class="bi bi-box-seam"></span>
+                        Estoque</a>
+                    <a class="nav-item" href="../pages/comunicacoesPage.php"><span class="bi bi-whatsapp"></span>
+                        Comunicações</a>
+                    <a class="nav-item" href="../pages/documentosPage.php"><span class="bi bi-file-earmark-text"></span>
+                        Documentos</a>
+                    <a class="nav-item" href="../pages/usuariosPage.php"><span class="bi bi-person-badge"></span>
+                        Usuários</a>
                 </nav>
 
                 <div class="sidebar-footer">
-                    <div class="help-card">
+                    <a href="../views/suporte.php" class="help-card" style="text-decoration: none;">
                         <span class="help-icon bi bi-heart"></span>
                         <div>
-                            <strong>Precisa de ajuda?</strong>
+                            <strong class="strong-suporte">Precisa de ajuda?</strong>
                             <small>Central de suporte</small>
                         </div>
-                    </div>
+                    </a>
                     <small class="copyright">Fito Clinic & Estética</small>
                 </div>
             </aside>
@@ -142,15 +153,16 @@ function renderPacienteGUI(
                 <?php foreach ($mensagens as $m): ?>
                     <div class="alert-fito alert-<?= $escapar($m['tipo']) ?> mb-3" role="alert">
                         <i class="bi <?= $m['tipo'] === 'sucesso'
-                                            ? 'bi-check-circle-fill'
-                                            : 'bi-exclamation-triangle-fill' ?>"></i>
+                            ? 'bi-check-circle-fill'
+                            : 'bi-exclamation-triangle-fill' ?>"></i>
                         <span><?= $escapar($m['texto']) ?></span>
                     </div>
                 <?php endforeach; ?>
 
                 <div class="page-header">
                     <div>
-                        <h1><?= $isEdicao ? 'Editando paciente #' . (int) $pacienteEdicao->id : 'Pacientes do sistema' ?></h1>
+                        <h1><?= $isEdicao ? 'Editando paciente #' . (int) $pacienteEdicao->id : 'Pacientes do sistema' ?>
+                        </h1>
                         <span class="subtitle">
                             <?= $isEdicao
                                 ? 'Altere os dados e clique em Salvar.'
@@ -201,8 +213,8 @@ function renderPacienteGUI(
                                     <div class="col-12">
                                         <label for="nome" class="form-label">Nome completo *</label>
                                         <input type="text" id="nome" name="nome" class="form-control"
-                                            value="<?= $val('nome') ?>" maxlength="150"
-                                            <?= $isEdicao ? 'autofocus' : '' ?> required>
+                                            value="<?= $val('nome') ?>" maxlength="150" <?= $isEdicao ? 'autofocus' : '' ?>
+                                            required>
                                     </div>
 
                                     <div class="col-md-6">
@@ -215,26 +227,27 @@ function renderPacienteGUI(
                                     <div class="col-md-3">
                                         <label for="cpf" class="form-label">CPF</label>
                                         <input type="text" id="cpf" name="cpf" class="form-control"
-                                            value="<?= $val('cpf') ?>" maxlength="14"
-                                            placeholder="000.000.000-00" inputmode="numeric">
+                                            value="<?= $val('cpf') ?>" maxlength="14" placeholder="000.000.000-00"
+                                            inputmode="numeric">
                                     </div>
 
                                     <div class="col-md-3">
                                         <label for="rg" class="form-label">RG</label>
-                                        <input type="text" id="rg" name="rg" class="form-control"
-                                            value="<?= $val('rg') ?>" maxlength="30">
+                                        <input type="text" id="rg" name="rg" class="form-control" value="<?= $val('rg') ?>"
+                                            maxlength="30">
                                     </div>
 
                                     <div class="col-md-4">
                                         <label for="data_nascimento" class="form-label">Data de nascimento</label>
-                                        <input type="date" id="data_nascimento" name="data_nascimento"
-                                            class="form-control" value="<?= $val('dataNascimento') ?>">
+                                        <input type="date" id="data_nascimento" name="data_nascimento" class="form-control"
+                                            value="<?= $val('dataNascimento') ?>">
                                     </div>
 
                                     <div class="col-md-4">
                                         <label for="genero" class="form-label">Gênero</label>
                                         <select id="genero" name="genero" class="form-select">
-                                            <option value="nao_informado" <?= $selGenero('nao_informado') ?>>Prefiro não informar</option>
+                                            <option value="nao_informado" <?= $selGenero('nao_informado') ?>>Prefiro não
+                                                informar</option>
                                             <option value="masculino" <?= $selGenero('masculino') ?>>Masculino</option>
                                             <option value="feminino" <?= $selGenero('feminino') ?>>Feminino</option>
                                             <option value="outro" <?= $selGenero('outro') ?>>Outro</option>
@@ -277,15 +290,15 @@ function renderPacienteGUI(
                                     <div class="col-md-3">
                                         <label for="estado" class="form-label">Estado (UF)</label>
                                         <input type="text" id="estado" name="estado" class="form-control"
-                                            value="<?= $val('estado') ?>" maxlength="2"
-                                            placeholder="Ex.: SP" style="text-transform: uppercase;">
+                                            value="<?= $val('estado') ?>" maxlength="2" placeholder="Ex.: SP"
+                                            style="text-transform: uppercase;">
                                     </div>
 
                                     <div class="col-md-4">
                                         <label for="cep" class="form-label">CEP</label>
                                         <input type="text" id="cep" name="cep" class="form-control"
-                                            value="<?= $val('cep') ?>" maxlength="10"
-                                            placeholder="00000-000" inputmode="numeric">
+                                            value="<?= $val('cep') ?>" maxlength="10" placeholder="00000-000"
+                                            inputmode="numeric">
                                     </div>
 
                                     <!-- Emergência -->
@@ -349,16 +362,15 @@ function renderPacienteGUI(
                                 </h2>
                             </div>
                             <span class="badge rounded-pill badge-fito-prof">
-                                <?= count($pacientes) ?> <?= count($pacientes) === 1 ? 'registro' : 'registros' ?>
+                                <?= count($pacientes) ?>     <?= count($pacientes) === 1 ? 'registro' : 'registros' ?>
                             </span>
                         </div>
 
                         <form method="get" action="pacientesPage.php" class="d-flex gap-2 align-items-center" role="search">
                             <div class="flex-grow-1">
                                 <input type="text" name="busca" value="<?= $escapar($busca) ?>"
-                                    class="form-control form-control-sm" maxlength="150"
-                                    placeholder="Buscar por nome…" aria-label="Buscar paciente por nome"
-                                    autocomplete="off">
+                                    class="form-control form-control-sm" maxlength="150" placeholder="Buscar por nome…"
+                                    aria-label="Buscar paciente por nome" autocomplete="off">
                             </div>
                             <button type="submit" class="btn-fito">
                                 <i class="bi bi-search"></i> Buscar
@@ -412,8 +424,10 @@ function renderPacienteGUI(
                                             // Contato principal
                                             $contatoPrincipal = $p->whatsapp ?? $p->telefone;
                                             $titleContato = [];
-                                            if ($p->whatsapp) $titleContato[] = 'WhatsApp: ' . $p->whatsapp;
-                                            if ($p->telefone) $titleContato[] = 'Telefone: ' . $p->telefone;
+                                            if ($p->whatsapp)
+                                                $titleContato[] = 'WhatsApp: ' . $p->whatsapp;
+                                            if ($p->telefone)
+                                                $titleContato[] = 'Telefone: ' . $p->telefone;
                                             $titleContatoStr = implode(' | ', $titleContato);
 
                                             // Cidade / UF
@@ -461,8 +475,8 @@ function renderPacienteGUI(
                                                     <?php endif; ?>
                                                 </td>
                                                 <td class="text-end text-nowrap">
-                                                    <a href="<?= $escapar($linkEditar) ?>"
-                                                        class="btn btn-warning margem-vertical" title="Editar paciente">
+                                                    <a href="<?= $escapar($linkEditar) ?>" class="btn btn-warning margem-vertical"
+                                                        title="Editar paciente">
                                                         <i class="bi bi-pen"></i> Editar
                                                     </a>
 
@@ -522,7 +536,7 @@ function renderPacienteGUI(
         <script src="../media/bootstrap/js/bootstrap.js"></script>
         <script src="../js/app.js"></script>
         <script>
-            document.getElementById('modalExcluirPaciente').addEventListener('show.bs.modal', function(event) {
+            document.getElementById('modalExcluirPaciente').addEventListener('show.bs.modal', function (event) {
                 const botao = event.relatedTarget;
                 document.getElementById('idPacienteExcluir').value = botao.getAttribute('data-paciente-id');
                 document.getElementById('nomePacienteExcluir').textContent = botao.getAttribute('data-paciente-nome');
@@ -538,5 +552,5 @@ function renderPacienteGUI(
     </body>
 
     </html>
-<?php
+    <?php
 }

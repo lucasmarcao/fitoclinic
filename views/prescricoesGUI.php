@@ -63,37 +63,37 @@ function renderPrescricaoItemFields(
     $campos = [
 
         'nome_medicamento' =>
-        $item['nome_medicamento'] ?? '',
+            $item['nome_medicamento'] ?? '',
 
         'principio_ativo' =>
-        $item['principio_ativo'] ?? '',
+            $item['principio_ativo'] ?? '',
 
         'apresentacao' =>
-        $item['apresentacao'] ?? '',
+            $item['apresentacao'] ?? '',
 
         'concentracao' =>
-        $item['concentracao'] ?? '',
+            $item['concentracao'] ?? '',
 
         'dosagem' =>
-        $item['dosagem'] ?? '',
+            $item['dosagem'] ?? '',
 
         'via_administracao' =>
-        $item['via_administracao'] ?? '',
+            $item['via_administracao'] ?? '',
 
         'frequencia' =>
-        $item['frequencia'] ?? '',
+            $item['frequencia'] ?? '',
 
         'duracao' =>
-        $item['duracao'] ?? '',
+            $item['duracao'] ?? '',
 
         'quantidade' =>
-        $item['quantidade'] ?? '',
+            $item['quantidade'] ?? '',
 
         'instrucoes' =>
-        $item['instrucoes'] ?? '',
+            $item['instrucoes'] ?? '',
 
         'dados_dosagem' =>
-        $item['dados_dosagem'] ?? '',
+            $item['dados_dosagem'] ?? '',
     ];
 
     $nomes = [
@@ -117,7 +117,7 @@ function renderPrescricaoItemFields(
         'quantidade' => 'Quantidade',
 
     ];
-?>
+    ?>
     <div class="col-12 item-prescricao mb-3">
 
         <div class="card border item-prescricao-card">
@@ -132,10 +132,7 @@ function renderPrescricaoItemFields(
                     </strong>
                 </div>
 
-                <button
-                    type="button"
-                    class="btn btn-sm btn-outline-danger btn-remover-item"
-                    title="Remover medicamento">
+                <button type="button" class="btn btn-sm btn-outline-danger btn-remover-item" title="Remover medicamento">
                     <span class="bi bi-trash"></span>
                     Remover
                 </button>
@@ -152,14 +149,9 @@ function renderPrescricaoItemFields(
                             Nome do medicamento *
                         </label>
 
-                        <input
-                            type="text"
-                            class="form-control campo-item"
-                            data-campo="nome_medicamento"
-                            name="itens[<?= $indice ?>][nome_medicamento]"
-                            maxlength="200"
-                            value="<?= escaparPrescricao($campos['nome_medicamento']) ?>"
-                            placeholder="Ex.: Vitamina D3"
+                        <input type="text" class="form-control campo-item" data-campo="nome_medicamento"
+                            name="itens[<?= $indice ?>][nome_medicamento]" maxlength="200"
+                            value="<?= escaparPrescricao($campos['nome_medicamento']) ?>" placeholder="Ex.: Vitamina D3"
                             required>
 
                     </div>
@@ -170,14 +162,9 @@ function renderPrescricaoItemFields(
                             Princípio ativo
                         </label>
 
-                        <input
-                            type="text"
-                            class="form-control campo-item"
-                            data-campo="principio_ativo"
-                            name="itens[<?= $indice ?>][principio_ativo]"
-                            maxlength="200"
-                            value="<?= escaparPrescricao($campos['principio_ativo']) ?>"
-                            placeholder="Princípio ativo">
+                        <input type="text" class="form-control campo-item" data-campo="principio_ativo"
+                            name="itens[<?= $indice ?>][principio_ativo]" maxlength="200"
+                            value="<?= escaparPrescricao($campos['principio_ativo']) ?>" placeholder="Princípio ativo">
 
                     </div>
 
@@ -208,12 +195,8 @@ function renderPrescricaoItemFields(
                                 <?= escaparPrescricao($rotulo) ?>
                             </label>
 
-                            <input
-                                type="text"
-                                class="form-control campo-item"
-                                data-campo="<?= escaparPrescricao($campo) ?>"
-                                name="itens[<?= $indice ?>][<?= escaparPrescricao($campo) ?>]"
-                                maxlength="<?= $max ?>"
+                            <input type="text" class="form-control campo-item" data-campo="<?= escaparPrescricao($campo) ?>"
+                                name="itens[<?= $indice ?>][<?= escaparPrescricao($campo) ?>]" maxlength="<?= $max ?>"
                                 value="<?= escaparPrescricao($campos[$campo]) ?>">
 
                         </div>
@@ -226,12 +209,8 @@ function renderPrescricaoItemFields(
                             Instruções adicionais
                         </label>
 
-                        <textarea
-                            class="form-control campo-item"
-                            data-campo="instrucoes"
-                            name="itens[<?= $indice ?>][instrucoes]"
-                            rows="2"
-                            maxlength="10000"
+                        <textarea class="form-control campo-item" data-campo="instrucoes"
+                            name="itens[<?= $indice ?>][instrucoes]" rows="2" maxlength="10000"
                             placeholder="Orientações específicas para utilização..."><?= escaparPrescricao($campos['instrucoes']) ?></textarea>
 
                     </div>
@@ -244,10 +223,7 @@ function renderPrescricaoItemFields(
 
                                 <h2 class="accordion-header">
 
-                                    <button
-                                        type="button"
-                                        class="accordion-button collapsed"
-                                        data-bs-toggle="collapse"
+                                    <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse"
                                         data-bs-target="#dosagemJSON<?= $indice ?>">
 
                                         <span class="bi bi-braces me-2"></span>
@@ -258,9 +234,7 @@ function renderPrescricaoItemFields(
 
                                 </h2>
 
-                                <div
-                                    id="dosagemJSON<?= $indice ?>"
-                                    class="accordion-collapse collapse"
+                                <div id="dosagemJSON<?= $indice ?>" class="accordion-collapse collapse"
                                     data-bs-parent="#accordionDosagem<?= $indice ?>">
 
                                     <div class="accordion-body">
@@ -269,12 +243,8 @@ function renderPrescricaoItemFields(
                                             Dados estruturados
                                         </label>
 
-                                        <textarea
-                                            class="form-control font-monospace campo-item"
-                                            data-campo="dados_dosagem"
-                                            name="itens[<?= $indice ?>][dados_dosagem]"
-                                            rows="4"
-                                            maxlength="10000"
+                                        <textarea class="form-control font-monospace campo-item" data-campo="dados_dosagem"
+                                            name="itens[<?= $indice ?>][dados_dosagem]" rows="4" maxlength="10000"
                                             placeholder='{"horarios":["08:00"],"unidades_por_dose":1}'><?= escaparPrescricao($campos['dados_dosagem']) ?></textarea>
 
                                         <div class="form-text">
@@ -300,7 +270,7 @@ function renderPrescricaoItemFields(
         </div>
 
     </div>
-<?php
+    <?php
 }
 
 /**
@@ -331,7 +301,7 @@ function renderPrescricaoItemReadonly(array $item): void
         'Instruções' => $item['instrucoes'] ?? '',
 
     ];
-?>
+    ?>
     <div class="card card-fito mb-3">
 
         <div class="card-header">
@@ -352,7 +322,8 @@ function renderPrescricaoItemReadonly(array $item): void
 
                 <?php foreach ($campos as $nome => $valor): ?>
 
-                    <?php if (trim((string) $valor) === '') continue; ?>
+                    <?php if (trim((string) $valor) === '')
+                        continue; ?>
 
                     <div class="col-12 col-sm-6 col-lg-4">
 
@@ -376,7 +347,7 @@ function renderPrescricaoItemReadonly(array $item): void
             $json = $item['dados_dosagem'] ?? null;
 
             if ($json !== null && $json !== ''):
-            ?>
+                ?>
 
                 <div class="mt-3">
 
@@ -385,12 +356,12 @@ function renderPrescricaoItemReadonly(array $item): void
                     </div>
 
                     <pre class="bg-light p-3 rounded small mb-0"><?= escaparPrescricao(
-                                                                        json_encode(
-                                                                            json_decode($json, true),
-                                                                            JSON_PRETTY_PRINT
-                                                                                | JSON_UNESCAPED_UNICODE
-                                                                        )
-                                                                    ) ?></pre>
+                        json_encode(
+                            json_decode($json, true),
+                            JSON_PRETTY_PRINT
+                            | JSON_UNESCAPED_UNICODE
+                        )
+                    ) ?></pre>
 
                 </div>
 
@@ -452,15 +423,14 @@ function renderPrescricaoTableRows(
     // =====================================================
 
     if (empty($prescricoes)) {
-    ?>
+        ?>
 
         <tr>
             <td colspan="8" class="text-center py-5">
 
                 <div class="empty-state">
 
-                    <span class="bi bi-prescription2"
-                        aria-hidden="true"></span>
+                    <span class="bi bi-prescription2" aria-hidden="true"></span>
 
                     <?php if ($filtrosAtivos): ?>
 
@@ -483,7 +453,7 @@ function renderPrescricaoTableRows(
             </td>
         </tr>
 
-    <?php
+        <?php
         return;
     }
 
@@ -568,11 +538,9 @@ function renderPrescricaoTableRows(
             $quantidadeItens = null;
         }
 
-    ?>
+        ?>
 
-        <tr
-            id="prescricao-<?= $id ?>"
-            class="<?= $isEdit ? 'table-warning' : '' ?>">
+        <tr id="prescricao-<?= $id ?>" class="<?= $isEdit ? 'table-warning' : '' ?>">
 
             <!-- ID -->
 
@@ -600,8 +568,8 @@ function renderPrescricaoTableRows(
 
                 <?= $e(
                     method_exists($p, 'dataPrescricaoBR')
-                        ? $p->dataPrescricaoBR()
-                        : '—'
+                    ? $p->dataPrescricaoBR()
+                    : '—'
                 ) ?>
 
             </td>
@@ -614,13 +582,11 @@ function renderPrescricaoTableRows(
 
                     <span class="badge rounded-pill text-bg-light border">
 
-                        <span
-                            class="bi bi-journal-medical me-1"
-                            aria-hidden="true"></span>
+                        <span class="bi bi-journal-medical me-1" aria-hidden="true"></span>
 
                         <?= $e(
                             $p->prontuarioResumo
-                                ?? ('Prontuário #' . $p->prontuarioId)
+                            ?? ('Prontuário #' . $p->prontuarioId)
                         ) ?>
 
                     </span>
@@ -640,8 +606,8 @@ function renderPrescricaoTableRows(
             <td>
 
                 <span class="badge rounded-pill <?= $e(
-                                                    $p->situacaoBadgeClass()
-                                                ) ?>">
+                    $p->situacaoBadgeClass()
+                ) ?>">
 
                     <?= $e($p->situacaoLabel()) ?>
 
@@ -675,13 +641,9 @@ function renderPrescricaoTableRows(
                     && trim((string) $p->assinadoEm) !== ''
                 ): ?>
 
-                    <span
-                        class="small text-success"
-                        title="Assinada em <?= $e($p->assinadoEmBR()) ?>">
+                    <span class="small text-success" title="Assinada em <?= $e($p->assinadoEmBR()) ?>">
 
-                        <span
-                            class="bi bi-patch-check-fill me-1"
-                            aria-hidden="true"></span>
+                        <span class="bi bi-patch-check-fill me-1" aria-hidden="true"></span>
 
                         <?= $e($p->assinadoEmBR()) ?>
 
@@ -691,9 +653,7 @@ function renderPrescricaoTableRows(
 
                     <span class="small text-fito-muted">
 
-                        <span
-                            class="bi bi-dash-circle me-1"
-                            aria-hidden="true"></span>
+                        <span class="bi bi-dash-circle me-1" aria-hidden="true"></span>
 
                         Não assinada
 
@@ -709,8 +669,8 @@ function renderPrescricaoTableRows(
 
                 <?= $e(
                     method_exists($p, 'atualizadoEmBR')
-                        ? $p->atualizadoEmBR()
-                        : '—'
+                    ? $p->atualizadoEmBR()
+                    : '—'
                 ) ?>
 
             </td>
@@ -719,25 +679,17 @@ function renderPrescricaoTableRows(
 
             <td class="text-end text-nowrap">
 
-                <div
-                    class="btn-group btn-group-sm"
-                    role="group"
-                    aria-label="Ações da prescrição <?= $id ?>">
+                <div class="btn-group btn-group-sm" role="group" aria-label="Ações da prescrição <?= $id ?>">
 
                     <!-- EDITAR / VISUALIZAR -->
 
-                    <a
-                        href="<?= $e($linkEditar) ?>"
-                        class="btn btn-outline-secondary"
-                        title="<?= $p->podeEditar()
-                                    ? 'Editar rascunho'
-                                    : 'Visualizar prescrição' ?>">
+                    <a href="<?= $e($linkEditar) ?>" class="btn btn-outline-secondary" title="<?= $p->podeEditar()
+                          ? 'Editar rascunho'
+                          : 'Visualizar prescrição' ?>">
 
-                        <span
-                            class="bi <?= $p->podeEditar()
-                                            ? 'bi-pencil-square'
-                                            : 'bi-eye' ?>"
-                            aria-hidden="true"></span>
+                        <span class="bi <?= $p->podeEditar()
+                            ? 'bi-pencil-square'
+                            : 'bi-eye' ?>" aria-hidden="true"></span>
 
                     </a>
 
@@ -745,18 +697,11 @@ function renderPrescricaoTableRows(
 
                     <?php if ($p->podeEmitir()): ?>
 
-                        <button
-                            type="button"
-                            class="btn btn-success"
-                            title="Emitir prescrição"
-                            data-bs-toggle="modal"
-                            data-bs-target="#modalEmitirPrescricao"
-                            data-prescricao-id="<?= $id ?>"
+                        <button type="button" class="btn btn-success" title="Emitir prescrição" data-bs-toggle="modal"
+                            data-bs-target="#modalEmitirPrescricao" data-prescricao-id="<?= $id ?>"
                             data-prescricao-resumo="<?= $e($resumo) ?>">
 
-                            <span
-                                class="bi bi-pen"
-                                aria-hidden="true"></span>
+                            <span class="bi bi-pen" aria-hidden="true"></span>
 
                         </button>
 
@@ -766,18 +711,11 @@ function renderPrescricaoTableRows(
 
                     <?php if ($p->podeCancelar()): ?>
 
-                        <button
-                            type="button"
-                            class="btn btn-outline-danger"
-                            title="Cancelar prescrição"
-                            data-bs-toggle="modal"
-                            data-bs-target="#modalCancelarPrescricao"
-                            data-prescricao-id="<?= $id ?>"
+                        <button type="button" class="btn btn-outline-danger" title="Cancelar prescrição" data-bs-toggle="modal"
+                            data-bs-target="#modalCancelarPrescricao" data-prescricao-id="<?= $id ?>"
                             data-prescricao-resumo="<?= $e($resumo) ?>">
 
-                            <span
-                                class="bi bi-x-circle"
-                                aria-hidden="true"></span>
+                            <span class="bi bi-x-circle" aria-hidden="true"></span>
 
                         </button>
 
@@ -787,18 +725,11 @@ function renderPrescricaoTableRows(
 
                     <?php if ($p->podeExcluir()): ?>
 
-                        <button
-                            type="button"
-                            class="btn btn-danger"
-                            title="Excluir rascunho"
-                            data-bs-toggle="modal"
-                            data-bs-target="#modalExcluirPrescricao"
-                            data-prescricao-id="<?= $id ?>"
+                        <button type="button" class="btn btn-danger" title="Excluir rascunho" data-bs-toggle="modal"
+                            data-bs-target="#modalExcluirPrescricao" data-prescricao-id="<?= $id ?>"
                             data-prescricao-resumo="<?= $e($resumo) ?>">
 
-                            <span
-                                class="bi bi-trash"
-                                aria-hidden="true"></span>
+                            <span class="bi bi-trash" aria-hidden="true"></span>
 
                         </button>
 
@@ -923,18 +854,11 @@ function renderPrescricaoGUI(
             <?= $e($titulo) ?> — Fito Clinic
         </title>
 
-        <link
-            rel="shortcut icon"
-            href="../media/img/faviconrhay.png"
-            type="image/x-icon">
+        <link rel="shortcut icon" href="../media/img/faviconrhay.png" type="image/x-icon">
 
-        <link
-            rel="stylesheet"
-            href="../media/bootstrap/css/bootstrap.css">
+        <link rel="stylesheet" href="../media/bootstrap/css/bootstrap.css">
 
-        <link
-            rel="stylesheet"
-            href="../media/icons/bootstrap-icons.css">
+        <link rel="stylesheet" href="../media/icons/bootstrap-icons.css">
 
         <link rel="stylesheet" href="../css/styles.css">
 
@@ -1021,26 +945,35 @@ function renderPrescricaoGUI(
                 <nav class="nav">
                     <a class="nav-item active" href="/"><span class="bi bi-house"></span> Início</a>
                     <a class="nav-item" href="../main.php"><span class="bi bi-bar-chart-steps"></span> Painel</a>
-                    <a class="nav-item" href="../pages/agendamentosPage.php"><span class="bi bi-calendar-event"></span> Agenda</a>
+                    <a class="nav-item" href="../pages/agendamentosPage.php"><span class="bi bi-calendar-event"></span>
+                        Agenda</a>
                     <a class="nav-item" href="../pages/pacientesPage.php"><span class="bi bi-people"></span> Pacientes</a>
-                    <a class="nav-item" href="../pages/prontuariosPage.php"><span class="bi bi-file-medical"></span> Prontuários</a>
-                    <a class="nav-item" href="../pages/prescricoesPage.php"><span class="bi bi-pencil-square"></span> Prescrições</a>
-                    <a class="nav-item" href="../pages/itens_prescricaoPage.php"><span class="bi bi-list-check"></span> Itens de Prescrição</a>
-                    <a class="nav-item" href="../pages/transacoes_financeirasPage.php"><span class="bi bi-currency-dollar"></span> Financeiro</a>
-                    <a class="nav-item" href="../pages/itens_estoquePage.php"><span class="bi bi-box-seam"></span> Estoque</a>
-                    <a class="nav-item" href="../pages/comunicacoesPage.php"><span class="bi bi-whatsapp"></span> Comunicações</a>
-                    <a class="nav-item" href="../pages/documentosPage.php"><span class="bi bi-file-earmark-text"></span> Documentos</a>
-                    <a class="nav-item" href="../pages/usuariosPage.php"><span class="bi bi-person-badge"></span> Usuários</a>
+                    <a class="nav-item" href="../pages/prontuariosPage.php"><span class="bi bi-file-medical"></span>
+                        Prontuários</a>
+                    <a class="nav-item" href="../pages/prescricoesPage.php"><span class="bi bi-pencil-square"></span>
+                        Prescrições</a>
+                    <a class="nav-item" href="../pages/itens_prescricaoPage.php"><span class="bi bi-list-check"></span>
+                        Itens de Prescrição</a>
+                    <a class="nav-item" href="../pages/transacoes_financeirasPage.php"><span
+                            class="bi bi-currency-dollar"></span> Financeiro</a>
+                    <a class="nav-item" href="../pages/itens_estoquePage.php"><span class="bi bi-box-seam"></span>
+                        Estoque</a>
+                    <a class="nav-item" href="../pages/comunicacoesPage.php"><span class="bi bi-whatsapp"></span>
+                        Comunicações</a>
+                    <a class="nav-item" href="../pages/documentosPage.php"><span class="bi bi-file-earmark-text"></span>
+                        Documentos</a>
+                    <a class="nav-item" href="../pages/usuariosPage.php"><span class="bi bi-person-badge"></span>
+                        Usuários</a>
                 </nav>
 
                 <div class="sidebar-footer">
-                    <div class="help-card">
+                    <a href="../views/suporte.php" class="help-card" style="text-decoration: none;">
                         <span class="help-icon bi bi-heart"></span>
                         <div>
-                            <strong>Precisa de ajuda?</strong>
+                            <strong class="strong-suporte">Precisa de ajuda?</strong>
                             <small>Central de suporte</small>
                         </div>
-                    </div>
+                    </a>
                     <small class="copyright">Fito Clinic & Estética</small>
                 </div>
             </aside>
@@ -1051,11 +984,7 @@ function renderPrescricaoGUI(
 
                 <header class="topbar">
 
-                    <button
-                        class="menu-btn"
-                        type="button"
-                        id="menuBtn"
-                        aria-label="Abrir menu">
+                    <button class="menu-btn" type="button" id="menuBtn" aria-label="Abrir menu">
                         <span class="bi bi-list"></span>
                     </button>
 
@@ -1069,11 +998,7 @@ function renderPrescricaoGUI(
 
                     <div class="top-actions">
 
-                        <button
-                            type="button"
-                            class="icon-btn"
-                            data-bs-toggle="offcanvas"
-                            data-bs-target="#offcanvasAtalhos"
+                        <button type="button" class="icon-btn" data-bs-toggle="offcanvas" data-bs-target="#offcanvasAtalhos"
                             title="Atalhos">
                             <span class="bi bi-grid"></span>
                         </button>
@@ -1126,9 +1051,7 @@ function renderPrescricaoGUI(
                         : 'bi-exclamation-triangle-fill';
                     ?>
 
-                    <div
-                        class="alert-fito alert-<?= $e($tipo) ?> mb-3"
-                        role="alert">
+                    <div class="alert-fito alert-<?= $e($tipo) ?> mb-3" role="alert">
 
                         <span class="bi <?= $icone ?>"></span>
 
@@ -1165,19 +1088,14 @@ function renderPrescricaoGUI(
 
                     <?php if ($isEdicao): ?>
 
-                        <a
-                            href="prescricoesPage.php"
-                            class="btn-fito-outline">
+                        <a href="prescricoesPage.php" class="btn-fito-outline">
                             <span class="bi bi-arrow-left me-1"></span>
                             Voltar
                         </a>
 
                     <?php else: ?>
 
-                        <button
-                            type="button"
-                            class="btn-fito"
-                            data-bs-toggle="collapse"
+                        <button type="button" class="btn-fito" data-bs-toggle="collapse"
                             data-bs-target="#formPrescricaoContainer">
                             <span class="bi bi-plus-lg me-1"></span>
                             Nova prescrição
@@ -1279,8 +1197,8 @@ function renderPrescricaoGUI(
                             </div>
 
                             <span class="badge rounded-pill <?= $e(
-                                                                $prescricaoEdicao->situacaoBadgeClass()
-                                                            ) ?>">
+                                $prescricaoEdicao->situacaoBadgeClass()
+                            ) ?>">
                                 <?= $e($prescricaoEdicao->situacaoLabel()) ?>
                             </span>
 
@@ -1384,13 +1302,10 @@ function renderPrescricaoGUI(
 
                 <?php if (!$somenteLeitura): ?>
 
-                    <div
-                        class="collapse <?= (!$temRegistro || ($isEdicao && !$somenteLeitura)) ? 'show' : '' ?>"
+                    <div class="collapse <?= (!$temRegistro || ($isEdicao && !$somenteLeitura)) ? 'show' : '' ?>"
                         id="formPrescricaoContainer">
 
-                        <section
-                            class="card card-fito mb-4 prescricao-formulario"
-                            id="formularioPrescricao">
+                        <section class="card card-fito mb-4 prescricao-formulario" id="formularioPrescricao">
 
                             <div class="card-header d-flex justify-content-between align-items-center">
 
@@ -1414,28 +1329,15 @@ function renderPrescricaoGUI(
 
                             <div class="card-body">
 
-                                <form
-                                    method="POST"
-                                    action="prescricoesPage.php"
-                                    class="form-fito"
-                                    id="formPrescricao">
+                                <form method="POST" action="prescricoesPage.php" class="form-fito" id="formPrescricao">
 
-                                    <input
-                                        type="hidden"
-                                        name="csrf_token"
-                                        value="<?= $e($csrf) ?>">
+                                    <input type="hidden" name="csrf_token" value="<?= $e($csrf) ?>">
 
-                                    <input
-                                        type="hidden"
-                                        name="acao"
-                                        value="<?= $isEdicao ? 'atualizar' : 'criar' ?>">
+                                    <input type="hidden" name="acao" value="<?= $isEdicao ? 'atualizar' : 'criar' ?>">
 
                                     <?php if ($isEdicao): ?>
 
-                                        <input
-                                            type="hidden"
-                                            name="id"
-                                            value="<?= $idAtual ?>">
+                                        <input type="hidden" name="id" value="<?= $idAtual ?>">
 
                                     <?php endif; ?>
 
@@ -1454,11 +1356,7 @@ function renderPrescricaoGUI(
                                                 Paciente *
                                             </label>
 
-                                            <select
-                                                class="form-select"
-                                                name="paciente_id"
-                                                id="paciente_id"
-                                                required>
+                                            <select class="form-select" name="paciente_id" id="paciente_id" required>
 
                                                 <option value="">
                                                     — Selecione o paciente —
@@ -1466,11 +1364,9 @@ function renderPrescricaoGUI(
 
                                                 <?php foreach ($pacientes as $paciente): ?>
 
-                                                    <option
-                                                        value="<?= (int) $paciente['id'] ?>"
-                                                        <?= $pacienteAtual === (int) $paciente['id']
-                                                            ? 'selected'
-                                                            : '' ?>>
+                                                    <option value="<?= (int) $paciente['id'] ?>" <?= $pacienteAtual === (int) $paciente['id']
+                                                           ? 'selected'
+                                                           : '' ?>>
                                                         <?= $e($paciente['nome']) ?>
                                                     </option>
 
@@ -1486,11 +1382,7 @@ function renderPrescricaoGUI(
                                                 Profissional responsável *
                                             </label>
 
-                                            <select
-                                                class="form-select"
-                                                name="profissional_id"
-                                                id="profissional_id"
-                                                required>
+                                            <select class="form-select" name="profissional_id" id="profissional_id" required>
 
                                                 <option value="">
                                                     — Selecione o profissional —
@@ -1498,11 +1390,9 @@ function renderPrescricaoGUI(
 
                                                 <?php foreach ($profissionais as $profissional): ?>
 
-                                                    <option
-                                                        value="<?= (int) $profissional['id'] ?>"
-                                                        <?= $profissionalAtual === (int) $profissional['id']
-                                                            ? 'selected'
-                                                            : '' ?>>
+                                                    <option value="<?= (int) $profissional['id'] ?>" <?= $profissionalAtual === (int) $profissional['id']
+                                                           ? 'selected'
+                                                           : '' ?>>
                                                         <?= $e($profissional['nome']) ?>
                                                         <?= !empty($profissional['numero_registro'])
                                                             ? ' — ' . $e($profissional['tipo_registro'] ?? '') . ' ' . $e($profissional['numero_registro'])
@@ -1521,14 +1411,9 @@ function renderPrescricaoGUI(
                                                 Data e horário *
                                             </label>
 
-                                            <input
-                                                type="datetime-local"
-                                                class="form-control"
-                                                name="data_prescricao"
-                                                id="data_prescricao"
-                                                value="<?= $e($dataForm) ?>"
-                                                max="<?= date('Y-m-d\TH:i') ?>"
-                                                required>
+                                            <input type="datetime-local" class="form-control" name="data_prescricao"
+                                                id="data_prescricao" value="<?= $e($dataForm) ?>"
+                                                max="<?= date('Y-m-d\TH:i') ?>" required>
 
                                         </div>
 
@@ -1538,10 +1423,7 @@ function renderPrescricaoGUI(
                                                 Prontuário vinculado
                                             </label>
 
-                                            <select
-                                                class="form-select"
-                                                name="prontuario_id"
-                                                id="prontuario_id">
+                                            <select class="form-select" name="prontuario_id" id="prontuario_id">
 
                                                 <option value="">
                                                     — Sem vínculo com prontuário —
@@ -1549,11 +1431,9 @@ function renderPrescricaoGUI(
 
                                                 <?php foreach ($prontuariosPaciente as $prontuario): ?>
 
-                                                    <option
-                                                        value="<?= (int) $prontuario['id'] ?>"
-                                                        <?= $prontuarioAtual === (int) $prontuario['id']
-                                                            ? 'selected'
-                                                            : '' ?>>
+                                                    <option value="<?= (int) $prontuario['id'] ?>" <?= $prontuarioAtual === (int) $prontuario['id']
+                                                           ? 'selected'
+                                                           : '' ?>>
                                                         <?= $e(
                                                             formatarPrescricaoProntuarioOption($prontuario)
                                                         ) ?>
@@ -1588,10 +1468,7 @@ function renderPrescricaoGUI(
                                             </small>
                                         </div>
 
-                                        <button
-                                            type="button"
-                                            class="btn btn-outline-success"
-                                            id="adicionarMedicamento">
+                                        <button type="button" class="btn btn-outline-success" id="adicionarMedicamento">
                                             <span class="bi bi-plus-circle me-1"></span>
                                             Adicionar medicamento
                                         </button>
@@ -1623,9 +1500,7 @@ function renderPrescricaoGUI(
                                             Limite de 25 medicamentos por prescrição.
                                         </small>
 
-                                        <span
-                                            class="badge text-bg-secondary"
-                                            id="contadorMedicamentos">
+                                        <span class="badge text-bg-secondary" id="contadorMedicamentos">
                                             <?= count($formItens) ?> itens
                                         </span>
 
@@ -1640,11 +1515,7 @@ function renderPrescricaoGUI(
                                         Observações gerais
                                     </h3>
 
-                                    <textarea
-                                        class="form-control mb-4"
-                                        name="observacoes"
-                                        id="observacoes"
-                                        rows="4"
+                                    <textarea class="form-control mb-4" name="observacoes" id="observacoes" rows="4"
                                         maxlength="10000"
                                         placeholder="Informações complementares..."><?= $e($observacoesAtual) ?></textarea>
 
@@ -1656,20 +1527,15 @@ function renderPrescricaoGUI(
 
                                             <h2 class="accordion-header">
 
-                                                <button
-                                                    type="button"
-                                                    class="accordion-button collapsed"
-                                                    data-bs-toggle="collapse"
-                                                    data-bs-target="#regrasPrescricao">
+                                                <button type="button" class="accordion-button collapsed"
+                                                    data-bs-toggle="collapse" data-bs-target="#regrasPrescricao">
                                                     <span class="bi bi-shield-check me-2"></span>
                                                     Regras de negócio
                                                 </button>
 
                                             </h2>
 
-                                            <div
-                                                id="regrasPrescricao"
-                                                class="accordion-collapse collapse"
+                                            <div id="regrasPrescricao" class="accordion-collapse collapse"
                                                 data-bs-parent="#accordionRegrasPrescricao">
 
                                                 <div class="accordion-body small">
@@ -1695,9 +1561,7 @@ function renderPrescricaoGUI(
 
                                     <div class="d-flex justify-content-between flex-wrap gap-2">
 
-                                        <a
-                                            href="prescricoesPage.php"
-                                            class="btn-fito-outline">
+                                        <a href="prescricoesPage.php" class="btn-fito-outline">
                                             <span class="bi bi-x-lg me-1"></span>
                                             Cancelar
                                         </a>
@@ -1744,9 +1608,7 @@ function renderPrescricaoGUI(
                             </h2>
                         </div>
 
-                        <span
-                            class="badge rounded-pill text-bg-success"
-                            id="prescricoesCount">
+                        <span class="badge rounded-pill text-bg-success" id="prescricoesCount">
                             <?= $total ?>
                             <?= $total === 1 ? 'registro' : 'registros' ?>
                         </span>
@@ -1771,11 +1633,7 @@ function renderPrescricaoGUI(
                                         <span class="bi bi-search"></span>
                                     </span>
 
-                                    <input
-                                        type="search"
-                                        id="buscaInput"
-                                        class="form-control"
-                                        value="<?= $e($busca) ?>"
+                                    <input type="search" id="buscaInput" class="form-control" value="<?= $e($busca) ?>"
                                         placeholder="Paciente, medicamento, profissional ou ID">
 
                                 </div>
@@ -1794,11 +1652,9 @@ function renderPrescricaoGUI(
 
                                     <?php foreach ($profissionais as $profissional): ?>
 
-                                        <option
-                                            value="<?= (int) $profissional['id'] ?>"
-                                            <?= $profissionalFiltro === (int) $profissional['id']
-                                                ? 'selected'
-                                                : '' ?>>
+                                        <option value="<?= (int) $profissional['id'] ?>" <?= $profissionalFiltro === (int) $profissional['id']
+                                               ? 'selected'
+                                               : '' ?>>
                                             <?= $e($profissional['nome']) ?>
                                         </option>
 
@@ -1820,11 +1676,9 @@ function renderPrescricaoGUI(
 
                                     <?php foreach (Prescricao::SITUACOES as $codigo => $rotulo): ?>
 
-                                        <option
-                                            value="<?= $e($codigo) ?>"
-                                            <?= $situacaoFiltro === $codigo
-                                                ? 'selected'
-                                                : '' ?>>
+                                        <option value="<?= $e($codigo) ?>" <?= $situacaoFiltro === $codigo
+                                              ? 'selected'
+                                              : '' ?>>
                                             <?= $e($rotulo) ?>
                                         </option>
 
@@ -1840,10 +1694,7 @@ function renderPrescricaoGUI(
                                     De
                                 </label>
 
-                                <input
-                                    type="date"
-                                    id="dataInicioFilter"
-                                    class="form-control"
+                                <input type="date" id="dataInicioFilter" class="form-control"
                                     value="<?= $e($dataInicioFiltro) ?>">
 
                             </div>
@@ -1854,28 +1705,19 @@ function renderPrescricaoGUI(
                                     Até
                                 </label>
 
-                                <input
-                                    type="date"
-                                    id="dataFimFilter"
-                                    class="form-control"
+                                <input type="date" id="dataFimFilter" class="form-control"
                                     value="<?= $e($dataFimFiltro) ?>">
 
                             </div>
 
                             <div class="col-12 col-lg-2 d-flex align-items-end gap-2">
 
-                                <button
-                                    type="button"
-                                    id="hojeBtn"
-                                    class="btn btn-outline-secondary flex-fill">
+                                <button type="button" id="hojeBtn" class="btn btn-outline-secondary flex-fill">
                                     <span class="bi bi-calendar-day me-1"></span>
                                     Hoje
                                 </button>
 
-                                <button
-                                    type="button"
-                                    id="limparFiltros"
-                                    class="btn btn-outline-secondary"
+                                <button type="button" id="limparFiltros" class="btn btn-outline-secondary"
                                     title="Limpar filtros">
                                     <span class="bi bi-eraser"></span>
                                 </button>
@@ -1930,9 +1772,7 @@ function renderPrescricaoGUI(
                                 Pesquisa instantânea via AJAX.
                             </small>
 
-                            <a
-                                href="itens_prescricaoPage.php"
-                                class="btn btn-sm btn-outline-secondary">
+                            <a href="itens_prescricaoPage.php" class="btn btn-sm btn-outline-secondary">
                                 <span class="bi bi-list-check me-1"></span>
                                 Gerenciar itens
                             </a>
@@ -1952,11 +1792,7 @@ function renderPrescricaoGUI(
         </div>
 
 
-        <div
-            class="offcanvas offcanvas-end"
-            tabindex="-1"
-            id="offcanvasAtalhos"
-            aria-labelledby="offcanvasAtalhosLabel">
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasAtalhos" aria-labelledby="offcanvasAtalhosLabel">
 
             <div class="offcanvas-header">
 
@@ -1964,11 +1800,7 @@ function renderPrescricaoGUI(
                     Atalhos da clínica
                 </h5>
 
-                <button
-                    type="button"
-                    class="btn-close"
-                    data-bs-dismiss="offcanvas"
-                    aria-label="Fechar"></button>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Fechar"></button>
 
             </div>
 
@@ -2008,11 +1840,7 @@ function renderPrescricaoGUI(
         </div>
 
 
-        <div
-            class="modal fade"
-            id="modalEmitirPrescricao"
-            tabindex="-1"
-            aria-labelledby="modalEmitirLabel"
+        <div class="modal fade" id="modalEmitirPrescricao" tabindex="-1" aria-labelledby="modalEmitirLabel"
             aria-hidden="true">
 
             <div class="modal-dialog modal-lg modal-dialog-centered">
@@ -2028,11 +1856,7 @@ function renderPrescricaoGUI(
                                 Emitir prescrição
                             </h5>
 
-                            <button
-                                type="button"
-                                class="btn-close"
-                                data-bs-dismiss="modal"
-                                aria-label="Fechar"></button>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
 
                         </div>
 
@@ -2042,10 +1866,7 @@ function renderPrescricaoGUI(
 
                             <input type="hidden" name="acao" value="emitir">
 
-                            <input
-                                type="hidden"
-                                name="id"
-                                id="idPrescricaoEmitir">
+                            <input type="hidden" name="id" id="idPrescricaoEmitir">
 
                             <p id="resumoPrescricaoEmitir"></p>
 
@@ -2053,13 +1874,8 @@ function renderPrescricaoGUI(
                                 Payload de assinatura digital *
                             </label>
 
-                            <textarea
-                                name="assinatura_digital"
-                                id="assinatura_digital"
-                                class="form-control font-monospace"
-                                rows="5"
-                                maxlength="60000"
-                                required
+                            <textarea name="assinatura_digital" id="assinatura_digital" class="form-control font-monospace"
+                                rows="5" maxlength="60000" required
                                 placeholder="Payload retornado pelo serviço de assinatura..."></textarea>
 
                             <div class="form-text">
@@ -2076,10 +1892,7 @@ function renderPrescricaoGUI(
 
                         <div class="modal-footer">
 
-                            <button
-                                type="button"
-                                class="btn btn-outline-secondary"
-                                data-bs-dismiss="modal">
+                            <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
                                 Voltar
                             </button>
 
@@ -2098,11 +1911,7 @@ function renderPrescricaoGUI(
 
         </div>
 
-        <div
-            class="modal fade"
-            id="modalCancelarPrescricao"
-            tabindex="-1"
-            aria-labelledby="modalCancelarLabel"
+        <div class="modal fade" id="modalCancelarPrescricao" tabindex="-1" aria-labelledby="modalCancelarLabel"
             aria-hidden="true">
 
             <div class="modal-dialog modal-dialog-centered">
@@ -2117,11 +1926,7 @@ function renderPrescricaoGUI(
                                 Cancelar prescrição
                             </h5>
 
-                            <button
-                                type="button"
-                                class="btn-close"
-                                data-bs-dismiss="modal"
-                                aria-label="Fechar"></button>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
 
                         </div>
 
@@ -2131,10 +1936,7 @@ function renderPrescricaoGUI(
 
                             <input type="hidden" name="acao" value="cancelar">
 
-                            <input
-                                type="hidden"
-                                name="id"
-                                id="idPrescricaoCancelar">
+                            <input type="hidden" name="id" id="idPrescricaoCancelar">
 
                             <p>Confirma o cancelamento de:</p>
 
@@ -2148,10 +1950,7 @@ function renderPrescricaoGUI(
 
                         <div class="modal-footer">
 
-                            <button
-                                type="button"
-                                class="btn btn-outline-secondary"
-                                data-bs-dismiss="modal">
+                            <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
                                 Voltar
                             </button>
 
@@ -2169,11 +1968,7 @@ function renderPrescricaoGUI(
 
         </div>
 
-        <div
-            class="modal fade"
-            id="modalExcluirPrescricao"
-            tabindex="-1"
-            aria-labelledby="modalExcluirLabel"
+        <div class="modal fade" id="modalExcluirPrescricao" tabindex="-1" aria-labelledby="modalExcluirLabel"
             aria-hidden="true">
 
             <div class="modal-dialog modal-dialog-centered">
@@ -2188,11 +1983,7 @@ function renderPrescricaoGUI(
                                 Excluir rascunho
                             </h5>
 
-                            <button
-                                type="button"
-                                class="btn-close"
-                                data-bs-dismiss="modal"
-                                aria-label="Fechar"></button>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
 
                         </div>
 
@@ -2202,10 +1993,7 @@ function renderPrescricaoGUI(
 
                             <input type="hidden" name="acao" value="excluir">
 
-                            <input
-                                type="hidden"
-                                name="id"
-                                id="idPrescricaoExcluir">
+                            <input type="hidden" name="id" id="idPrescricaoExcluir">
 
                             <p>Tem certeza de que deseja excluir:</p>
 
@@ -2220,10 +2008,7 @@ function renderPrescricaoGUI(
 
                         <div class="modal-footer">
 
-                            <button
-                                type="button"
-                                class="btn btn-outline-secondary"
-                                data-bs-dismiss="modal">
+                            <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
                                 Cancelar
                             </button>
 
@@ -2571,10 +2356,10 @@ function renderPrescricaoGUI(
                         const response = await fetch(
                             'prescricoesSearchAjax.php?mode=prontuarios&paciente_id=' +
                             encodeURIComponent(pacienteId), {
-                                headers: {
-                                    'X-Requested-With': 'XMLHttpRequest'
-                                }
+                            headers: {
+                                'X-Requested-With': 'XMLHttpRequest'
                             }
+                        }
                         );
 
                         if (!response.ok) {
@@ -2701,11 +2486,11 @@ function renderPrescricaoGUI(
                         const response = await fetch(
                             'prescricoesSearchAjax.php?' +
                             parametros.toString(), {
-                                headers: {
-                                    'X-Requested-With': 'XMLHttpRequest'
-                                },
-                                signal: controller.signal
-                            }
+                            headers: {
+                                'X-Requested-With': 'XMLHttpRequest'
+                            },
+                            signal: controller.signal
+                        }
                         );
 
                         if (!response.ok) {
@@ -2826,5 +2611,5 @@ function renderPrescricaoGUI(
     </body>
 
     </html>
-<?php
+    <?php
 }

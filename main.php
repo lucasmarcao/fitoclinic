@@ -39,14 +39,14 @@ try {
 }
 
 $stats = [
-  'pacientes'           => $pdo ? contarSeguro($pdo, 'pacientes') : 0,
-  'usuariosAtivos'      => $pdo ? contarSeguro($pdo, 'usuarios', 'ativo = 1') : 0,
-  'agendamentosHoje'    => $pdo ? contarSeguro($pdo, 'agendamentos', "data_agendamento = CURDATE()") : 0,
+  'pacientes' => $pdo ? contarSeguro($pdo, 'pacientes') : 0,
+  'usuariosAtivos' => $pdo ? contarSeguro($pdo, 'usuarios', 'ativo = 1') : 0,
+  'agendamentosHoje' => $pdo ? contarSeguro($pdo, 'agendamentos', "data_agendamento = CURDATE()") : 0,
   'agendamentosFuturos' => $pdo ? contarSeguro($pdo, 'agendamentos', "data_agendamento >= CURDATE() AND situacao IN ('agendado','confirmado')") : 0,
-  'prontuarios'         => $pdo ? contarSeguro($pdo, 'prontuarios') : 0,
-  'prescricoes'         => $pdo ? contarSeguro($pdo, 'prescricoes') : 0,
-  'itensEstoque'        => $pdo ? contarSeguro($pdo, 'itens_estoque') : 0,
-  'comunicacoesPend'    => $pdo ? contarSeguro($pdo, 'comunicacoes', "status = 'pendente'") : 0,
+  'prontuarios' => $pdo ? contarSeguro($pdo, 'prontuarios') : 0,
+  'prescricoes' => $pdo ? contarSeguro($pdo, 'prescricoes') : 0,
+  'itensEstoque' => $pdo ? contarSeguro($pdo, 'itens_estoque') : 0,
+  'comunicacoesPend' => $pdo ? contarSeguro($pdo, 'comunicacoes', "status = 'pendente'") : 0,
 ];
 
 $receitaMes = $pdo ? somarSeguro(
@@ -57,24 +57,24 @@ $receitaMes = $pdo ? somarSeguro(
        AND YEAR(data_transacao)  = YEAR(CURDATE())"
 ) : 0.0;
 
-$totalTabelas    = 10;
-$totalModulos    = 10;
+$totalTabelas = 10;
+$totalModulos = 10;
 $pacientesAtivos = $stats['pacientes'];   // aproximação amigável
-$metaMensal      = max(1, $receitaMes * 1.15); // usado só no progress
-$progressoMeta   = min(100, (int) round(($receitaMes / $metaMensal) * 100));
+$metaMensal = max(1, $receitaMes * 1.15); // usado só no progress
+$progressoMeta = min(100, (int) round(($receitaMes / $metaMensal) * 100));
 
 // Cartões de módulos (todos os 10)
 $modulos = [
-  ['icone' => 'bi-people',           'nome' => 'Pacientes',           'desc' => 'Cadastro completo com histórico, CPF e contatos.',         'link' => 'pages/pacientesPage.php'],
-  ['icone' => 'bi-calendar-event',   'nome' => 'Agenda',              'desc' => 'Grade de atendimentos, status e teleconsulta.',             'link' => 'pages/agendamentosPage.php'],
-  ['icone' => 'bi-file-medical',     'nome' => 'Prontuários',         'desc' => 'Anamnese, evolução, sinais vitais e tratamentos.',         'link' => 'pages/prontuariosPage.php'],
-  ['icone' => 'bi-pencil-square',    'nome' => 'Prescrições',         'desc' => 'Receitas eletrônicas com medicamentos e dosagens.',         'link' => 'pages/prescricoesPage.php'],
-  ['icone' => 'bi-list-check',       'nome' => 'Itens de Prescrição', 'desc' => 'Detalhamento dos medicamentos prescritos.',                'link' => 'pages/itens_prescricaoPage.php'],
-  ['icone' => 'bi-box-seam',         'nome' => 'Estoque',             'desc' => 'Medicamentos, insumos e alertas de reposição.',             'link' => 'pages/itens_estoquePage.php'],
-  ['icone' => 'bi-currency-dollar',  'nome' => 'Financeiro',          'desc' => 'Receitas, despesas e fechamento mensal.',                   'link' => 'pages/transacoes_financeirasPage.php'],
-  ['icone' => 'bi-whatsapp',         'nome' => 'Comunicações',        'desc' => 'Lembretes e mensagens automáticas via WhatsApp.',           'link' => 'pages/comunicacoesPage.php'],
-  ['icone' => 'bi-file-earmark-text', 'nome' => 'Documentos',          'desc' => 'Receitas, atestados e termos de consentimento.',           'link' => 'pages/documentosPage.php'],
-  ['icone' => 'bi-person-badge',     'nome' => 'Usuários',            'desc' => 'Administradores, profissionais e recepcionistas.',         'link' => 'pages/usuariosPage.php'],
+  ['icone' => 'bi-people', 'nome' => 'Pacientes', 'desc' => 'Cadastro completo com histórico, CPF e contatos.', 'link' => 'pages/pacientesPage.php'],
+  ['icone' => 'bi-calendar-event', 'nome' => 'Agenda', 'desc' => 'Grade de atendimentos, status e teleconsulta.', 'link' => 'pages/agendamentosPage.php'],
+  ['icone' => 'bi-file-medical', 'nome' => 'Prontuários', 'desc' => 'Anamnese, evolução, sinais vitais e tratamentos.', 'link' => 'pages/prontuariosPage.php'],
+  ['icone' => 'bi-pencil-square', 'nome' => 'Prescrições', 'desc' => 'Receitas eletrônicas com medicamentos e dosagens.', 'link' => 'pages/prescricoesPage.php'],
+  ['icone' => 'bi-list-check', 'nome' => 'Itens de Prescrição', 'desc' => 'Detalhamento dos medicamentos prescritos.', 'link' => 'pages/itens_prescricaoPage.php'],
+  ['icone' => 'bi-box-seam', 'nome' => 'Estoque', 'desc' => 'Medicamentos, insumos e alertas de reposição.', 'link' => 'pages/itens_estoquePage.php'],
+  ['icone' => 'bi-currency-dollar', 'nome' => 'Financeiro', 'desc' => 'Receitas, despesas e fechamento mensal.', 'link' => 'pages/transacoes_financeirasPage.php'],
+  ['icone' => 'bi-whatsapp', 'nome' => 'Comunicações', 'desc' => 'Lembretes e mensagens automáticas via WhatsApp.', 'link' => 'pages/comunicacoesPage.php'],
+  ['icone' => 'bi-file-earmark-text', 'nome' => 'Documentos', 'desc' => 'Receitas, atestados e termos de consentimento.', 'link' => 'pages/documentosPage.php'],
+  ['icone' => 'bi-person-badge', 'nome' => 'Usuários', 'desc' => 'Administradores, profissionais e recepcionistas.', 'link' => 'pages/usuariosPage.php'],
 ];
 
 $hoje = new DateTime();
@@ -131,8 +131,10 @@ $diaSemana = ['Domingo', 'Segunda-feira', 'Terça-feira', 'Quarta-feira', 'Quint
         <a class="nav-item" href="pages/pacientesPage.php"><span class="bi bi-people"></span> Pacientes</a>
         <a class="nav-item" href="pages/prontuariosPage.php"><span class="bi bi-file-medical"></span> Prontuários</a>
         <a class="nav-item" href="pages/prescricoesPage.php"><span class="bi bi-pencil-square"></span> Prescrições</a>
-        <a class="nav-item" href="pages/itens_prescricaoPage.php"><span class="bi bi-list-check"></span> Itens de Prescrição</a>
-        <a class="nav-item" href="pages/transacoes_financeirasPage.php"><span class="bi bi-currency-dollar"></span> Financeiro</a>
+        <a class="nav-item" href="pages/itens_prescricaoPage.php"><span class="bi bi-list-check"></span> Itens de
+          Prescrição</a>
+        <a class="nav-item" href="pages/transacoes_financeirasPage.php"><span class="bi bi-currency-dollar"></span>
+          Financeiro</a>
         <a class="nav-item" href="pages/itens_estoquePage.php"><span class="bi bi-box-seam"></span> Estoque</a>
         <a class="nav-item" href="pages/comunicacoesPage.php"><span class="bi bi-whatsapp"></span> Comunicações</a>
         <a class="nav-item" href="pages/documentosPage.php"><span class="bi bi-file-earmark-text"></span> Documentos</a>
@@ -140,13 +142,13 @@ $diaSemana = ['Domingo', 'Segunda-feira', 'Terça-feira', 'Quarta-feira', 'Quint
       </nav>
 
       <div class="sidebar-footer">
-        <div class="help-card">
+        <a href="../views/suporte.php" class="help-card" style="text-decoration: none;">
           <span class="help-icon bi bi-heart"></span>
           <div>
-            <strong>Precisa de ajuda?</strong>
+            <strong class="strong-suporte">Precisa de ajuda?</strong>
             <small>Central de suporte</small>
           </div>
-        </div>
+        </a>
         <small class="copyright">Fito Clinic & Estética</small>
       </div>
     </aside>
@@ -195,7 +197,8 @@ $diaSemana = ['Domingo', 'Segunda-feira', 'Terça-feira', 'Quarta-feira', 'Quint
             Você tem <strong><?= (int) $stats['agendamentosHoje'] ?>
               atendimento<?= $stats['agendamentosHoje'] === 1 ? '' : 's' ?></strong>
             programado<?= $stats['agendamentosHoje'] === 1 ? '' : 's' ?> para hoje e
-            <strong><?= (int) $stats['comunicacoesPend'] ?></strong> comunicação<?= $stats['comunicacoesPend'] === 1 ? '' : 'ões' ?>
+            <strong><?= (int) $stats['comunicacoesPend'] ?></strong>
+            comunicação<?= $stats['comunicacoesPend'] === 1 ? '' : 'ões' ?>
             pendente<?= $stats['comunicacoesPend'] === 1 ? '' : 's' ?>.
           </p>
 
@@ -334,7 +337,7 @@ $diaSemana = ['Domingo', 'Segunda-feira', 'Terça-feira', 'Quarta-feira', 'Quint
   <script src="js/app.js"></script>
   <script>
     // ---- Sidebar mobile (compatível com app.js) ----
-    (function() {
+    (function () {
       const sidebar = document.getElementById('sidebar');
       const menuBtn = document.getElementById('menuBtn');
       const closeBtn = document.getElementById('sidebarClose');

@@ -93,26 +93,35 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <nav class="nav">
                 <a class="nav-item active" href="/"><span class="bi bi-house"></span> Início</a>
                 <a class="nav-item" href="../main.php"><span class="bi bi-bar-chart-steps"></span> Painel</a>
-                <a class="nav-item" href="../pages/agendamentosPage.php"><span class="bi bi-calendar-event"></span> Agenda</a>
+                <a class="nav-item" href="../pages/agendamentosPage.php"><span class="bi bi-calendar-event"></span>
+                    Agenda</a>
                 <a class="nav-item" href="../pages/pacientesPage.php"><span class="bi bi-people"></span> Pacientes</a>
-                <a class="nav-item" href="../pages/prontuariosPage.php"><span class="bi bi-file-medical"></span> Prontuários</a>
-                <a class="nav-item" href="../pages/prescricoesPage.php"><span class="bi bi-pencil-square"></span> Prescrições</a>
-                <a class="nav-item" href="../pages/itens_prescricaoPage.php"><span class="bi bi-list-check"></span> Itens de Prescrição</a>
-                <a class="nav-item" href="../pages/transacoes_financeirasPage.php"><span class="bi bi-currency-dollar"></span> Financeiro</a>
-                <a class="nav-item" href="../pages/itens_estoquePage.php"><span class="bi bi-box-seam"></span> Estoque</a>
-                <a class="nav-item" href="../pages/comunicacoesPage.php"><span class="bi bi-whatsapp"></span> Comunicações</a>
-                <a class="nav-item" href="../pages/documentosPage.php"><span class="bi bi-file-earmark-text"></span> Documentos</a>
-                <a class="nav-item" href="../pages/usuariosPage.php"><span class="bi bi-person-badge"></span> Usuários</a>
+                <a class="nav-item" href="../pages/prontuariosPage.php"><span class="bi bi-file-medical"></span>
+                    Prontuários</a>
+                <a class="nav-item" href="../pages/prescricoesPage.php"><span class="bi bi-pencil-square"></span>
+                    Prescrições</a>
+                <a class="nav-item" href="../pages/itens_prescricaoPage.php"><span class="bi bi-list-check"></span>
+                    Itens de Prescrição</a>
+                <a class="nav-item" href="../pages/transacoes_financeirasPage.php"><span
+                        class="bi bi-currency-dollar"></span> Financeiro</a>
+                <a class="nav-item" href="../pages/itens_estoquePage.php"><span class="bi bi-box-seam"></span>
+                    Estoque</a>
+                <a class="nav-item" href="../pages/comunicacoesPage.php"><span class="bi bi-whatsapp"></span>
+                    Comunicações</a>
+                <a class="nav-item" href="../pages/documentosPage.php"><span class="bi bi-file-earmark-text"></span>
+                    Documentos</a>
+                <a class="nav-item" href="../pages/usuariosPage.php"><span class="bi bi-person-badge"></span>
+                    Usuários</a>
             </nav>
 
             <div class="sidebar-footer">
-                <div class="help-card">
+                <a href="../views/suporte.php" class="help-card" style="text-decoration: none;">
                     <span class="help-icon bi bi-heart"></span>
                     <div>
-                        <strong>Precisa de ajuda?</strong>
+                        <strong class="strong-suporte">Precisa de ajuda?</strong>
                         <small>Central de suporte</small>
                     </div>
-                </div>
+                </a>
                 <small class="copyright">Fito Clinic & Estética</small>
             </div>
         </aside>

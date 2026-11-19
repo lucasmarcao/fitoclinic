@@ -245,13 +245,13 @@ function renderAgendamentoGUI(
                 </nav>
 
                 <div class="sidebar-footer">
-                    <div class="help-card">
+                    <a href="../views/suporte.php" class="help-card" style="text-decoration: none;">
                         <span class="help-icon bi bi-heart"></span>
                         <div>
-                            <strong>Precisa de ajuda?</strong>
+                            <strong class="strong-suporte">Precisa de ajuda?</strong>
                             <small>Central de suporte</small>
                         </div>
-                    </div>
+                    </a>
                     <small class="copyright">Fito Clinic & Estética</small>
                 </div>
             </aside>

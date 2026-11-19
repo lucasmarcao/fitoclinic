@@ -14,12 +14,12 @@ function formatAgendamentoOptionLabel(array $a): string
     }
     $hora = substr((string) ($a['hora_inicio'] ?? ''), 0, 5);
     $tipo = match ($a['tipo'] ?? '') {
-        'consulta'     => 'Consulta',
-        'massagem'     => 'Massagem',
+        'consulta' => 'Consulta',
+        'massagem' => 'Massagem',
         'procedimento' => 'Procedimento',
-        'retorno'      => 'Retorno',
-        'outro'        => 'Outro',
-        default        => (string) ($a['tipo'] ?? ''),
+        'retorno' => 'Retorno',
+        'outro' => 'Outro',
+        default => (string) ($a['tipo'] ?? ''),
     };
     return "{$dataStr} {$hora} — {$tipo}";
 }
@@ -41,7 +41,7 @@ function renderProntuarioTableRows(
 
     if (empty($prontuarios)) {
         $colspan = 8;
-?>
+        ?>
         <tr>
             <td colspan="<?= $colspan ?>" class="text-center py-5">
                 <div class="empty-state">
@@ -54,18 +54,21 @@ function renderProntuarioTableRows(
                 </div>
             </td>
         </tr>
-    <?php
+        <?php
         return;
     }
 
     foreach ($prontuarios as $p):
-        $isEdit   = $idEdicao !== null && $idEdicao === $p->id;
+        $isEdit = $idEdicao !== null && $idEdicao === $p->id;
         $rowClass = $isEdit ? 'table-warning' : '';
 
         $linkEditar = '?editar=' . (int) $p->id;
-        if ($busca !== '')              $linkEditar .= '&busca=' . urlencode($busca);
-        if ($profissionalFiltro > 0)    $linkEditar .= '&profissional=' . (int) $profissionalFiltro;
-        if ($dataFiltro !== '')         $linkEditar .= '&data=' . urlencode($dataFiltro);
+        if ($busca !== '')
+            $linkEditar .= '&busca=' . urlencode($busca);
+        if ($profissionalFiltro > 0)
+            $linkEditar .= '&profissional=' . (int) $profissionalFiltro;
+        if ($dataFiltro !== '')
+            $linkEditar .= '&data=' . urlencode($dataFiltro);
 
         $queixaResumida = $p->queixa !== null
             ? (mb_strlen($p->queixa) > 55
@@ -74,7 +77,7 @@ function renderProntuarioTableRows(
             : '—';
 
         $imc = $p->imc();
-    ?>
+        ?>
         <tr class="<?= $rowClass ?>">
             <td class="text-fito-muted">#<?= (int) $p->id ?></td>
             <td><strong><?= $escapar($p->pacienteNome ?? '—') ?></strong></td>
@@ -110,19 +113,17 @@ function renderProntuarioTableRows(
                 <?php endif; ?>
             </td>
             <td class="text-end text-nowrap">
-                <a href="<?= $escapar($linkEditar) ?>"
-                    class="btn btn-warning margem-vertical" title="Editar prontuário">
+                <a href="<?= $escapar($linkEditar) ?>" class="btn btn-warning margem-vertical" title="Editar prontuário">
                     <i class="bi bi-pen"></i> Editar
                 </a>
-                <button type="button" class="btn btn-danger margem-vertical"
-                    data-bs-toggle="modal" data-bs-target="#modalExcluirProntuario"
-                    data-prontuario-id="<?= (int) $p->id ?>"
+                <button type="button" class="btn btn-danger margem-vertical" data-bs-toggle="modal"
+                    data-bs-target="#modalExcluirProntuario" data-prontuario-id="<?= (int) $p->id ?>"
                     data-prontuario-resumo="<?= $escapar($p->resumo()) ?>">
                     <i class="bi bi-trash"></i> Excluir
                 </button>
             </td>
         </tr>
-    <?php
+        <?php
     endforeach;
 }
 
@@ -152,11 +153,12 @@ function renderProntuarioGUI(
 ): void {
     $escapar = static fn($v) => htmlspecialchars((string) $v, ENT_QUOTES, 'UTF-8');
 
-    $isEdicao       = $prontuarioEdicao !== null && $prontuarioEdicao->id !== null;
-    $temFormData    = $prontuarioEdicao !== null;
+    $isEdicao = $prontuarioEdicao !== null && $prontuarioEdicao->id !== null;
+    $temFormData = $prontuarioEdicao !== null;
 
     $val = static function (string $campo) use ($prontuarioEdicao, $escapar) {
-        if ($prontuarioEdicao === null) return '';
+        if ($prontuarioEdicao === null)
+            return '';
         return $escapar($prontuarioEdicao->$campo ?? '');
     };
     $dataFormValue = $temFormData
@@ -269,26 +271,35 @@ function renderProntuarioGUI(
                 <nav class="nav">
                     <a class="nav-item active" href="/"><span class="bi bi-house"></span> Início</a>
                     <a class="nav-item" href="../main.php"><span class="bi bi-bar-chart-steps"></span> Painel</a>
-                    <a class="nav-item" href="../pages/agendamentosPage.php"><span class="bi bi-calendar-event"></span> Agenda</a>
+                    <a class="nav-item" href="../pages/agendamentosPage.php"><span class="bi bi-calendar-event"></span>
+                        Agenda</a>
                     <a class="nav-item" href="../pages/pacientesPage.php"><span class="bi bi-people"></span> Pacientes</a>
-                    <a class="nav-item" href="../pages/prontuariosPage.php"><span class="bi bi-file-medical"></span> Prontuários</a>
-                    <a class="nav-item" href="../pages/prescricoesPage.php"><span class="bi bi-pencil-square"></span> Prescrições</a>
-                    <a class="nav-item" href="../pages/itens_prescricaoPage.php"><span class="bi bi-list-check"></span> Itens de Prescrição</a>
-                    <a class="nav-item" href="../pages/transacoes_financeirasPage.php"><span class="bi bi-currency-dollar"></span> Financeiro</a>
-                    <a class="nav-item" href="../pages/itens_estoquePage.php"><span class="bi bi-box-seam"></span> Estoque</a>
-                    <a class="nav-item" href="../pages/comunicacoesPage.php"><span class="bi bi-whatsapp"></span> Comunicações</a>
-                    <a class="nav-item" href="../pages/documentosPage.php"><span class="bi bi-file-earmark-text"></span> Documentos</a>
-                    <a class="nav-item" href="../pages/usuariosPage.php"><span class="bi bi-person-badge"></span> Usuários</a>
+                    <a class="nav-item" href="../pages/prontuariosPage.php"><span class="bi bi-file-medical"></span>
+                        Prontuários</a>
+                    <a class="nav-item" href="../pages/prescricoesPage.php"><span class="bi bi-pencil-square"></span>
+                        Prescrições</a>
+                    <a class="nav-item" href="../pages/itens_prescricaoPage.php"><span class="bi bi-list-check"></span>
+                        Itens de Prescrição</a>
+                    <a class="nav-item" href="../pages/transacoes_financeirasPage.php"><span
+                            class="bi bi-currency-dollar"></span> Financeiro</a>
+                    <a class="nav-item" href="../pages/itens_estoquePage.php"><span class="bi bi-box-seam"></span>
+                        Estoque</a>
+                    <a class="nav-item" href="../pages/comunicacoesPage.php"><span class="bi bi-whatsapp"></span>
+                        Comunicações</a>
+                    <a class="nav-item" href="../pages/documentosPage.php"><span class="bi bi-file-earmark-text"></span>
+                        Documentos</a>
+                    <a class="nav-item" href="../pages/usuariosPage.php"><span class="bi bi-person-badge"></span>
+                        Usuários</a>
                 </nav>
 
                 <div class="sidebar-footer">
-                    <div class="help-card">
+                    <a href="../views/suporte.php" class="help-card" style="text-decoration: none;">
                         <span class="help-icon bi bi-heart"></span>
                         <div>
-                            <strong>Precisa de ajuda?</strong>
+                            <strong class="strong-suporte">Precisa de ajuda?</strong>
                             <small>Central de suporte</small>
                         </div>
-                    </div>
+                    </a>
                     <small class="copyright">Fito Clinic & Estética</small>
                 </div>
             </aside>
@@ -332,14 +343,16 @@ function renderProntuarioGUI(
 
                 <?php foreach ($mensagens as $m): ?>
                     <div class="alert-fito alert-<?= $escapar($m['tipo']) ?> mb-3" role="alert">
-                        <i class="bi <?= $m['tipo'] === 'sucesso' ? 'bi-check-circle-fill' : 'bi-exclamation-triangle-fill' ?>"></i>
+                        <i
+                            class="bi <?= $m['tipo'] === 'sucesso' ? 'bi-check-circle-fill' : 'bi-exclamation-triangle-fill' ?>"></i>
                         <span><?= $escapar($m['texto']) ?></span>
                     </div>
                 <?php endforeach; ?>
 
                 <div class="page-header">
                     <div>
-                        <h1><?= $isEdicao ? 'Editando prontuário #' . (int) $prontuarioEdicao->id : 'Prontuários da clínica' ?></h1>
+                        <h1><?= $isEdicao ? 'Editando prontuário #' . (int) $prontuarioEdicao->id : 'Prontuários da clínica' ?>
+                        </h1>
                         <span class="subtitle">
                             <?= $isEdicao
                                 ? 'Altere os dados e clique em Salvar.'
@@ -352,9 +365,8 @@ function renderProntuarioGUI(
                             <i class="bi bi-x-lg"></i> Cancelar edição
                         </a>
                     <?php else: ?>
-                        <button class="btn-fito" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#formNovoProntuario" aria-expanded="true"
-                            aria-controls="formNovoProntuario">
+                        <button class="btn-fito" type="button" data-bs-toggle="collapse" data-bs-target="#formNovoProntuario"
+                            aria-expanded="true" aria-controls="formNovoProntuario">
                             <i class="bi bi-plus-lg"></i> Novo prontuário
                         </button>
                     <?php endif; ?>
@@ -453,22 +465,22 @@ function renderProntuarioGUI(
                                     <div class="col-md-4">
                                         <label for="pressao_arterial" class="form-label">Pressão arterial</label>
                                         <input type="text" id="pressao_arterial" name="pressao_arterial"
-                                            class="form-control" value="<?= $val('pressaoArterial') ?>"
-                                            maxlength="20" placeholder="120/80">
+                                            class="form-control" value="<?= $val('pressaoArterial') ?>" maxlength="20"
+                                            placeholder="120/80">
                                         <div class="form-text">Formato: 120/80 ou 120/80 mmHg</div>
                                     </div>
 
                                     <!-- Campos clínicos -->
                                     <div class="col-12">
                                         <label for="queixa" class="form-label">Queixa principal</label>
-                                        <textarea id="queixa" name="queixa" class="form-control" rows="2"
-                                            maxlength="2000" placeholder="O que o paciente relata..."><?= $val('queixa') ?></textarea>
+                                        <textarea id="queixa" name="queixa" class="form-control" rows="2" maxlength="2000"
+                                            placeholder="O que o paciente relata..."><?= $val('queixa') ?></textarea>
                                     </div>
 
                                     <div class="col-12">
                                         <label for="historico_clinico" class="form-label">Histórico clínico</label>
-                                        <textarea id="historico_clinico" name="historico_clinico"
-                                            class="form-control" rows="3" maxlength="5000"
+                                        <textarea id="historico_clinico" name="historico_clinico" class="form-control"
+                                            rows="3" maxlength="5000"
                                             placeholder="Antecedentes, condições prévias, medicações em uso..."><?= $val('historicoClinico') ?></textarea>
                                     </div>
 
@@ -524,26 +536,22 @@ function renderProntuarioGUI(
                                 </h2>
                             </div>
                             <span class="badge rounded-pill badge-fito-prof" id="prontuariosCount">
-                                <?= count($prontuarios) ?> <?= count($prontuarios) === 1 ? 'registro' : 'registros' ?>
+                                <?= count($prontuarios) ?>     <?= count($prontuarios) === 1 ? 'registro' : 'registros' ?>
                             </span>
                         </div>
 
                         <div class="filter-bar d-flex flex-wrap gap-2 align-items-center mb-2">
                             <div class="flex-grow-1" style="min-width: 220px;">
-                                <input type="text" id="buscaInput"
-                                    class="form-control form-control-sm"
-                                    maxlength="150" placeholder="Buscar por paciente…"
-                                    aria-label="Buscar por nome do paciente"
-                                    value="<?= $escapar($busca) ?>"
-                                    autocomplete="off">
+                                <input type="text" id="buscaInput" class="form-control form-control-sm" maxlength="150"
+                                    placeholder="Buscar por paciente…" aria-label="Buscar por nome do paciente"
+                                    value="<?= $escapar($busca) ?>" autocomplete="off">
                             </div>
                             <div style="min-width: 180px;">
                                 <select id="profissionalFilter" class="form-select form-select-sm"
                                     aria-label="Filtrar por profissional">
                                     <option value="">Todos os profissionais</option>
                                     <?php foreach ($profissionais as $pr): ?>
-                                        <option value="<?= (int) $pr['id'] ?>"
-                                            <?= $profissionalFiltro === (int) $pr['id'] ? 'selected' : '' ?>>
+                                        <option value="<?= (int) $pr['id'] ?>" <?= $profissionalFiltro === (int) $pr['id'] ? 'selected' : '' ?>>
                                             <?= $escapar($pr['nome']) ?>
                                         </option>
                                     <?php endforeach; ?>
@@ -551,8 +559,7 @@ function renderProntuarioGUI(
                             </div>
                             <div style="min-width: 160px;">
                                 <input type="date" id="dataFilter" class="form-control form-control-sm"
-                                    aria-label="Filtrar por data"
-                                    value="<?= $escapar($dataFiltro) ?>">
+                                    aria-label="Filtrar por data" value="<?= $escapar($dataFiltro) ?>">
                             </div>
                             <button type="button" id="hojeBtn" class="btn-fito-outline" title="Filtrar por hoje">
                                 <i class="bi bi-calendar-day"></i> Hoje
@@ -628,7 +635,7 @@ function renderProntuarioGUI(
         <script src="../js/app.js"></script>
         <script>
             // ---- Modal de exclusão ----
-            document.getElementById('modalExcluirProntuario').addEventListener('show.bs.modal', function(event) {
+            document.getElementById('modalExcluirProntuario').addEventListener('show.bs.modal', function (event) {
                 const botao = event.relatedTarget;
                 document.getElementById('idProntuarioExcluir').value = botao.getAttribute('data-prontuario-id');
                 document.getElementById('resumoProntuarioExcluir').textContent = botao.getAttribute('data-prontuario-resumo');
@@ -643,24 +650,24 @@ function renderProntuarioGUI(
             <?php endif; ?>
 
                 // ---- Agendamentos dinâmicos ao trocar paciente ----
-                (function() {
+                (function () {
                     const pacienteSel = document.getElementById('paciente_id');
                     const agendamentoSel = document.getElementById('agendamento_id');
                     if (!pacienteSel || !agendamentoSel) return;
 
                     const placeholderSemPaciente = '— Sem agendamento vinculado —';
 
-                    pacienteSel.addEventListener('change', function() {
+                    pacienteSel.addEventListener('change', function () {
                         const pid = pacienteSel.value;
                         if (!pid) {
                             agendamentoSel.innerHTML = '<option value="">' + placeholderSemPaciente + '</option>';
                             return;
                         }
                         fetch('prontuariosSearchAjax.php?mode=agendamentos&paciente_id=' + encodeURIComponent(pid), {
-                                headers: {
-                                    'X-Requested-With': 'XMLHttpRequest'
-                                }
-                            })
+                            headers: {
+                                'X-Requested-With': 'XMLHttpRequest'
+                            }
+                        })
                             .then(r => r.json())
                             .then(data => {
                                 agendamentoSel.innerHTML =
@@ -671,7 +678,7 @@ function renderProntuarioGUI(
                 })();
 
             // ---- Busca em tempo real (AJAX, debounce 300 ms) ----
-            (function() {
+            (function () {
                 const buscaInput = document.getElementById('buscaInput');
                 const profSel = document.getElementById('profissionalFilter');
                 const dataInput = document.getElementById('dataFilter');
@@ -701,10 +708,10 @@ function renderProntuarioGUI(
                     });
 
                     fetch('prontuariosSearchAjax.php?' + params.toString(), {
-                            headers: {
-                                'X-Requested-With': 'XMLHttpRequest'
-                            }
-                        })
+                        headers: {
+                            'X-Requested-With': 'XMLHttpRequest'
+                        }
+                    })
                         .then(r => r.json())
                         .then(data => {
                             tbody.innerHTML = data.html;
@@ -740,5 +747,5 @@ function renderProntuarioGUI(
     </body>
 
     </html>
-<?php
+    <?php
 }

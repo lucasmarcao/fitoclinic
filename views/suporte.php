@@ -39,14 +39,14 @@ try {
 }
 
 $stats = [
-    'pacientes'           => $pdo ? contarSeguro($pdo, 'pacientes') : 0,
-    'usuariosAtivos'      => $pdo ? contarSeguro($pdo, 'usuarios', 'ativo = 1') : 0,
-    'agendamentosHoje'    => $pdo ? contarSeguro($pdo, 'agendamentos', "data_agendamento = CURDATE()") : 0,
+    'pacientes' => $pdo ? contarSeguro($pdo, 'pacientes') : 0,
+    'usuariosAtivos' => $pdo ? contarSeguro($pdo, 'usuarios', 'ativo = 1') : 0,
+    'agendamentosHoje' => $pdo ? contarSeguro($pdo, 'agendamentos', "data_agendamento = CURDATE()") : 0,
     'agendamentosFuturos' => $pdo ? contarSeguro($pdo, 'agendamentos', "data_agendamento >= CURDATE() AND situacao IN ('agendado','confirmado')") : 0,
-    'prontuarios'         => $pdo ? contarSeguro($pdo, 'prontuarios') : 0,
-    'prescricoes'         => $pdo ? contarSeguro($pdo, 'prescricoes') : 0,
-    'itensEstoque'        => $pdo ? contarSeguro($pdo, 'itens_estoque') : 0,
-    'comunicacoesPend'    => $pdo ? contarSeguro($pdo, 'comunicacoes', "status = 'pendente'") : 0,
+    'prontuarios' => $pdo ? contarSeguro($pdo, 'prontuarios') : 0,
+    'prescricoes' => $pdo ? contarSeguro($pdo, 'prescricoes') : 0,
+    'itensEstoque' => $pdo ? contarSeguro($pdo, 'itens_estoque') : 0,
+    'comunicacoesPend' => $pdo ? contarSeguro($pdo, 'comunicacoes', "status = 'pendente'") : 0,
 ];
 
 $receitaMes = $pdo ? somarSeguro(
@@ -57,24 +57,24 @@ $receitaMes = $pdo ? somarSeguro(
        AND YEAR(data_transacao)  = YEAR(CURDATE())"
 ) : 0.0;
 
-$totalTabelas    = 10;
-$totalModulos    = 10;
+$totalTabelas = 10;
+$totalModulos = 10;
 $pacientesAtivos = $stats['pacientes'];   // aproximação amigável
-$metaMensal      = max(1, $receitaMes * 1.15); // usado só no progress
-$progressoMeta   = min(100, (int) round(($receitaMes / $metaMensal) * 100));
+$metaMensal = max(1, $receitaMes * 1.15); // usado só no progress
+$progressoMeta = min(100, (int) round(($receitaMes / $metaMensal) * 100));
 
 // Cartões de módulos (todos os 10)
 $modulos = [
-    ['icone' => 'bi-people',           'nome' => 'Pacientes',           'desc' => 'Cadastro completo com histórico, CPF e contatos.',         'link' => 'pages/pacientesPage.php'],
-    ['icone' => 'bi-calendar-event',   'nome' => 'Agenda',              'desc' => 'Grade de atendimentos, status e teleconsulta.',             'link' => 'pages/agendamentosPage.php'],
-    ['icone' => 'bi-file-medical',     'nome' => 'Prontuários',         'desc' => 'Anamnese, evolução, sinais vitais e tratamentos.',         'link' => 'pages/prontuariosPage.php'],
-    ['icone' => 'bi-pencil-square',    'nome' => 'Prescrições',         'desc' => 'Receitas eletrônicas com medicamentos e dosagens.',         'link' => 'pages/prescricoesPage.php'],
-    ['icone' => 'bi-list-check',       'nome' => 'Itens de Prescrição', 'desc' => 'Detalhamento dos medicamentos prescritos.',                'link' => 'pages/itens_prescricaoPage.php'],
-    ['icone' => 'bi-box-seam',         'nome' => 'Estoque',             'desc' => 'Medicamentos, insumos e alertas de reposição.',             'link' => 'pages/itens_estoquePage.php'],
-    ['icone' => 'bi-currency-dollar',  'nome' => 'Financeiro',          'desc' => 'Receitas, despesas e fechamento mensal.',                   'link' => 'pages/transacoes_financeirasPage.php'],
-    ['icone' => 'bi-whatsapp',         'nome' => 'Comunicações',        'desc' => 'Lembretes e mensagens automáticas via WhatsApp.',           'link' => 'pages/comunicacoesPage.php'],
-    ['icone' => 'bi-file-earmark-text', 'nome' => 'Documentos',          'desc' => 'Receitas, atestados e termos de consentimento.',           'link' => 'pages/documentosPage.php'],
-    ['icone' => 'bi-person-badge',     'nome' => 'Usuários',            'desc' => 'Administradores, profissionais e recepcionistas.',         'link' => 'pages/usuariosPage.php'],
+    ['icone' => 'bi-people', 'nome' => 'Pacientes', 'desc' => 'Cadastro completo com histórico, CPF e contatos.', 'link' => 'pages/pacientesPage.php'],
+    ['icone' => 'bi-calendar-event', 'nome' => 'Agenda', 'desc' => 'Grade de atendimentos, status e teleconsulta.', 'link' => 'pages/agendamentosPage.php'],
+    ['icone' => 'bi-file-medical', 'nome' => 'Prontuários', 'desc' => 'Anamnese, evolução, sinais vitais e tratamentos.', 'link' => 'pages/prontuariosPage.php'],
+    ['icone' => 'bi-pencil-square', 'nome' => 'Prescrições', 'desc' => 'Receitas eletrônicas com medicamentos e dosagens.', 'link' => 'pages/prescricoesPage.php'],
+    ['icone' => 'bi-list-check', 'nome' => 'Itens de Prescrição', 'desc' => 'Detalhamento dos medicamentos prescritos.', 'link' => 'pages/itens_prescricaoPage.php'],
+    ['icone' => 'bi-box-seam', 'nome' => 'Estoque', 'desc' => 'Medicamentos, insumos e alertas de reposição.', 'link' => 'pages/itens_estoquePage.php'],
+    ['icone' => 'bi-currency-dollar', 'nome' => 'Financeiro', 'desc' => 'Receitas, despesas e fechamento mensal.', 'link' => 'pages/transacoes_financeirasPage.php'],
+    ['icone' => 'bi-whatsapp', 'nome' => 'Comunicações', 'desc' => 'Lembretes e mensagens automáticas via WhatsApp.', 'link' => 'pages/comunicacoesPage.php'],
+    ['icone' => 'bi-file-earmark-text', 'nome' => 'Documentos', 'desc' => 'Receitas, atestados e termos de consentimento.', 'link' => 'pages/documentosPage.php'],
+    ['icone' => 'bi-person-badge', 'nome' => 'Usuários', 'desc' => 'Administradores, profissionais e recepcionistas.', 'link' => 'pages/usuariosPage.php'],
 ];
 
 $hoje = new DateTime();
@@ -127,26 +127,35 @@ $diaSemana = ['Domingo', 'Segunda-feira', 'Terça-feira', 'Quarta-feira', 'Quint
             <nav class="nav">
                 <a class="nav-item active" href="/"><span class="bi bi-house"></span> Início</a>
                 <a class="nav-item" href="../main.php"><span class="bi bi-bar-chart-steps"></span> Painel</a>
-                <a class="nav-item" href="../pages/agendamentosPage.php"><span class="bi bi-calendar-event"></span> Agenda</a>
+                <a class="nav-item" href="../pages/agendamentosPage.php"><span class="bi bi-calendar-event"></span>
+                    Agenda</a>
                 <a class="nav-item" href="../pages/pacientesPage.php"><span class="bi bi-people"></span> Pacientes</a>
-                <a class="nav-item" href="../pages/prontuariosPage.php"><span class="bi bi-file-medical"></span> Prontuários</a>
-                <a class="nav-item" href="../pages/prescricoesPage.php"><span class="bi bi-pencil-square"></span> Prescrições</a>
-                <a class="nav-item" href="../pages/itens_prescricaoPage.php"><span class="bi bi-list-check"></span> Itens de Prescrição</a>
-                <a class="nav-item" href="../pages/transacoes_financeirasPage.php"><span class="bi bi-currency-dollar"></span> Financeiro</a>
-                <a class="nav-item" href="../pages/itens_estoquePage.php"><span class="bi bi-box-seam"></span> Estoque</a>
-                <a class="nav-item" href="../pages/comunicacoesPage.php"><span class="bi bi-whatsapp"></span> Comunicações</a>
-                <a class="nav-item" href="../pages/documentosPage.php"><span class="bi bi-file-earmark-text"></span> Documentos</a>
-                <a class="nav-item" href="../pages/usuariosPage.php"><span class="bi bi-person-badge"></span> Usuários</a>
+                <a class="nav-item" href="../pages/prontuariosPage.php"><span class="bi bi-file-medical"></span>
+                    Prontuários</a>
+                <a class="nav-item" href="../pages/prescricoesPage.php"><span class="bi bi-pencil-square"></span>
+                    Prescrições</a>
+                <a class="nav-item" href="../pages/itens_prescricaoPage.php"><span class="bi bi-list-check"></span>
+                    Itens de Prescrição</a>
+                <a class="nav-item" href="../pages/transacoes_financeirasPage.php"><span
+                        class="bi bi-currency-dollar"></span> Financeiro</a>
+                <a class="nav-item" href="../pages/itens_estoquePage.php"><span class="bi bi-box-seam"></span>
+                    Estoque</a>
+                <a class="nav-item" href="../pages/comunicacoesPage.php"><span class="bi bi-whatsapp"></span>
+                    Comunicações</a>
+                <a class="nav-item" href="../pages/documentosPage.php"><span class="bi bi-file-earmark-text"></span>
+                    Documentos</a>
+                <a class="nav-item" href="../pages/usuariosPage.php"><span class="bi bi-person-badge"></span>
+                    Usuários</a>
             </nav>
 
             <div class="sidebar-footer">
-                <div class="help-card">
+                <a href="../views/suporte.php" class="help-card" style="text-decoration: none;">
                     <span class="help-icon bi bi-heart"></span>
                     <div>
-                        <strong>Precisa de ajuda?</strong>
+                        <strong class="strong-suporte">Precisa de ajuda?</strong>
                         <small>Central de suporte</small>
                     </div>
-                </div>
+                </a>
                 <small class="copyright">Fito Clinic & Estética</small>
             </div>
         </aside>
@@ -204,8 +213,8 @@ $diaSemana = ['Domingo', 'Segunda-feira', 'Terça-feira', 'Quarta-feira', 'Quint
                                 <i class="bi bi-info-circle me-2"></i> Sobre o Sistema
                             </button>
                         </h2>
-                        <div id="collapseSobre" class="accordion-collapse collapse show"
-                            aria-labelledby="headingSobre" data-bs-parent="#accordionProjeto">
+                        <div id="collapseSobre" class="accordion-collapse collapse show" aria-labelledby="headingSobre"
+                            data-bs-parent="#accordionProjeto">
                             <div class="accordion-body">
                                 <p>
                                     O <strong>Fito Clinic &amp; Estética</strong> foi concebido para atender à
@@ -231,21 +240,30 @@ $diaSemana = ['Domingo', 'Segunda-feira', 'Terça-feira', 'Quarta-feira', 'Quint
                                 <i class="bi bi-grid-3x3-gap me-2"></i> Principais Módulos
                             </button>
                         </h2>
-                        <div id="collapseModulos" class="accordion-collapse collapse"
-                            aria-labelledby="headingModulos" data-bs-parent="#accordionProjeto">
+                        <div id="collapseModulos" class="accordion-collapse collapse" aria-labelledby="headingModulos"
+                            data-bs-parent="#accordionProjeto">
                             <div class="accordion-body">
                                 <ul class="mb-0">
-                                    <li>📅 <strong>Agenda Médica &amp; Estética</strong> — organização de horários, grade de atendimentos e status em tempo real.</li>
-                                    <li>🌐 <strong>Agendamento Online</strong> — canal para o paciente agendar autonomamente.</li>
-                                    <li>👤 <strong>Cadastro de Pacientes</strong> — histórico completo, dados de contato, alergias e emergência.</li>
-                                    <li>📋 <strong>Prontuário Eletrônico</strong> — anamnese, evolução, sinais vitais e tratamentos.</li>
-                                    <li>🖊️ <strong>Prescrição Eletrônica</strong> — receitas seguras com buscador de medicações.</li>
+                                    <li>📅 <strong>Agenda Médica &amp; Estética</strong> — organização de horários,
+                                        grade de atendimentos e status em tempo real.</li>
+                                    <li>🌐 <strong>Agendamento Online</strong> — canal para o paciente agendar
+                                        autonomamente.</li>
+                                    <li>👤 <strong>Cadastro de Pacientes</strong> — histórico completo, dados de
+                                        contato, alergias e emergência.</li>
+                                    <li>📋 <strong>Prontuário Eletrônico</strong> — anamnese, evolução, sinais vitais e
+                                        tratamentos.</li>
+                                    <li>🖊️ <strong>Prescrição Eletrônica</strong> — receitas seguras com buscador de
+                                        medicações.</li>
                                     <li>✍️ <strong>Assinatura Digital</strong> — validação de documentos online.</li>
-                                    <li>🏷️ <strong>Identidade Visual</strong> — logo aplicada em talonários e encaminhamentos.</li>
-                                    <li>📲 <strong>Automação WhatsApp</strong> — lembretes, confirmações e sequências de retorno.</li>
+                                    <li>🏷️ <strong>Identidade Visual</strong> — logo aplicada em talonários e
+                                        encaminhamentos.</li>
+                                    <li>📲 <strong>Automação WhatsApp</strong> — lembretes, confirmações e sequências de
+                                        retorno.</li>
                                     <li>🎥 <strong>Teleconsultas</strong> — atendimentos remotos via Google Meet.</li>
-                                    <li>💵 <strong>Gestão Financeira &amp; TISS</strong> — receitas, despesas e convênios.</li>
-                                    <li>📦 <strong>Controle de Estoque</strong> — medicamentos, insumos e alertas de validade.</li>
+                                    <li>💵 <strong>Gestão Financeira &amp; TISS</strong> — receitas, despesas e
+                                        convênios.</li>
+                                    <li>📦 <strong>Controle de Estoque</strong> — medicamentos, insumos e alertas de
+                                        validade.</li>
                                 </ul>
                             </div>
                         </div>
@@ -268,7 +286,8 @@ $diaSemana = ['Domingo', 'Segunda-feira', 'Terça-feira', 'Quarta-feira', 'Quint
                                     garantindo alta performance, facilidade de manutenção e independência de
                                     frameworks pesados.
                                 </p>
-                                <pre class="mb-0" style="background:var(--cream-3);padding:14px;border-radius:12px;font-size:.82rem;line-height:1.5;color:var(--ink);white-space:pre-wrap;">.
+                                <pre class="mb-0"
+                                    style="background:var(--cream-3);padding:14px;border-radius:12px;font-size:.82rem;line-height:1.5;color:var(--ink);white-space:pre-wrap;">.
 ├── account/       # Login, cadastro e gestão de contas
 ├── configs/       # Conexão PDO, guarda de autenticação, CORS
 ├── controller/    # DAOs — Data Access Objects
@@ -308,7 +327,8 @@ $diaSemana = ['Domingo', 'Segunda-feira', 'Terça-feira', 'Quarta-feira', 'Quint
                                     <li><code>gd</code> (imagens)</li>
                                 </ul>
                                 <p class="mb-2"><strong>Como rodar</strong></p>
-                                <pre class="mb-0" style="background:var(--cream-3);padding:14px;border-radius:12px;font-size:.85rem;color:var(--ink);">php -S localhost:8000</pre>
+                                <pre class="mb-0"
+                                    style="background:var(--cream-3);padding:14px;border-radius:12px;font-size:.85rem;color:var(--ink);">php -S localhost:8000</pre>
                                 <p class="mt-3 mb-0">
                                     Acesse <code>http://localhost:8000</code>. O banco
                                     <code>fito_clinic</code> e as tabelas são criados
@@ -325,16 +345,21 @@ $diaSemana = ['Domingo', 'Segunda-feira', 'Terça-feira', 'Quarta-feira', 'Quint
                                 <i class="bi bi-signpost-split me-2"></i> Roadmap — Mídia &amp; Arquivos
                             </button>
                         </h2>
-                        <div id="collapseRoadmap" class="accordion-collapse collapse"
-                            aria-labelledby="headingRoadmap" data-bs-parent="#accordionProjeto">
+                        <div id="collapseRoadmap" class="accordion-collapse collapse" aria-labelledby="headingRoadmap"
+                            data-bs-parent="#accordionProjeto">
                             <div class="accordion-body">
                                 <p>O monolito está preparado para, futuramente, suportar:</p>
                                 <ul class="mb-0">
-                                    <li>🖼️ <strong>Imagens</strong> (<code>.jpg</code>, <code>.png</code>) — antes/depois de procedimentos e exames.</li>
-                                    <li>🎵 <strong>Áudios</strong> (<code>.mp3</code>) — orientações de relaxamento e notas clínicas.</li>
-                                    <li>🎬 <strong>Vídeos</strong> (<code>.mp4</code>) — demonstrações de automassagem e exercícios.</li>
-                                    <li>📄 <strong>Documentos</strong> (<code>.pdf</code>, <code>.txt</code>) — relatórios e termos de consentimento.</li>
-                                    <li>📊 <strong>Planilhas</strong> (<code>.xls</code>, <code>.csv</code>) — importação e exportação financeira.</li>
+                                    <li>🖼️ <strong>Imagens</strong> (<code>.jpg</code>, <code>.png</code>) —
+                                        antes/depois de procedimentos e exames.</li>
+                                    <li>🎵 <strong>Áudios</strong> (<code>.mp3</code>) — orientações de relaxamento e
+                                        notas clínicas.</li>
+                                    <li>🎬 <strong>Vídeos</strong> (<code>.mp4</code>) — demonstrações de automassagem e
+                                        exercícios.</li>
+                                    <li>📄 <strong>Documentos</strong> (<code>.pdf</code>, <code>.txt</code>) —
+                                        relatórios e termos de consentimento.</li>
+                                    <li>📊 <strong>Planilhas</strong> (<code>.xls</code>, <code>.csv</code>) —
+                                        importação e exportação financeira.</li>
                                 </ul>
                             </div>
                         </div>
@@ -354,7 +379,8 @@ $diaSemana = ['Domingo', 'Segunda-feira', 'Terça-feira', 'Quarta-feira', 'Quint
                                 <p>
                                     Todas as páginas protegidas exigem o guardião de autenticação:
                                 </p>
-                                <pre class="mb-3" style="background:var(--cream-3);padding:14px;border-radius:12px;font-size:.82rem;color:var(--ink);">&lt;?php
+                                <pre class="mb-3"
+                                    style="background:var(--cream-3);padding:14px;border-radius:12px;font-size:.82rem;color:var(--ink);">&lt;?php
 require_once __DIR__ . '/../configs/authGuard.php';
 // Redireciona automaticamente se o usuário não estiver logado
 ?&gt;</pre>
@@ -473,13 +499,16 @@ require_once __DIR__ . '/../configs/authGuard.php';
                                 </div>
 
                                 <div class="d-flex gap-3 align-items-center">
-                                    <div class="spinner-border text-success" role="status" style="width:1.5rem;height:1.5rem;">
+                                    <div class="spinner-border text-success" role="status"
+                                        style="width:1.5rem;height:1.5rem;">
                                         <span class="visually-hidden">Carregando…</span>
                                     </div>
-                                    <div class="spinner-grow text-warning" role="status" style="width:1.5rem;height:1.5rem;">
+                                    <div class="spinner-grow text-warning" role="status"
+                                        style="width:1.5rem;height:1.5rem;">
                                         <span class="visually-hidden">Carregando…</span>
                                     </div>
-                                    <div class="spinner-border text-primary" role="status" style="width:1.5rem;height:1.5rem;">
+                                    <div class="spinner-border text-primary" role="status"
+                                        style="width:1.5rem;height:1.5rem;">
                                         <span class="visually-hidden">Carregando…</span>
                                     </div>
                                     <small class="text-fito-muted">Indicadores de carregamento</small>
@@ -496,13 +525,12 @@ require_once __DIR__ . '/../configs/authGuard.php';
                                 <h2 class="m-0">Ajuda contextual</h2>
                             </div>
                             <div class="card-body d-flex flex-wrap gap-3 align-items-center">
-                                <button type="button" class="btn btn-light"
-                                    data-bs-toggle="tooltip" data-bs-placement="top"
-                                    title="Cadastra um novo paciente no sistema">
+                                <button type="button" class="btn btn-light" data-bs-toggle="tooltip"
+                                    data-bs-placement="top" title="Cadastra um novo paciente no sistema">
                                     <i class="bi bi-person-plus"></i> Tooltip
                                 </button>
-                                <button type="button" class="btn btn-light"
-                                    data-bs-toggle="popover" data-bs-placement="bottom"
+                                <button type="button" class="btn btn-light" data-bs-toggle="popover"
+                                    data-bs-placement="bottom"
                                     data-bs-content="Uma receita pode ter múltiplos itens vinculados.">
                                     <i class="bi bi-info-circle"></i> Popover
                                 </button>
@@ -663,7 +691,8 @@ require_once __DIR__ . '/../configs/authGuard.php';
                         <span class="tech-badge"><i class="bi bi-arrow-repeat"></i> AJAX (fetch + debounce)</span>
                         <span class="tech-badge"><i class="bi bi-grid"></i> MVC adaptado</span>
                         <span class="tech-badge"><i class="bi bi-phone"></i> Design responsivo</span>
-                        <span class="tech-badge"><i class="bi bi-people"></i> <?= (int) $stats['usuariosAtivos'] ?> usuários ativos</span>
+                        <span class="tech-badge"><i class="bi bi-people"></i> <?= (int) $stats['usuariosAtivos'] ?>
+                            usuários ativos</span>
                         <span class="tech-badge"><i class="bi bi-table"></i> <?= (int) $totalTabelas ?> tabelas</span>
                     </div>
                 </div>
@@ -682,7 +711,7 @@ require_once __DIR__ . '/../configs/authGuard.php';
     <script src="../js/app.js"></script>
     <script>
         // ---- Sidebar mobile (compatível com app.js) ----
-        (function() {
+        (function () {
             const sidebar = document.getElementById('sidebar');
             const menuBtn = document.getElementById('menuBtn');
             const closeBtn = document.getElementById('sidebarClose');

@@ -1,0 +1,32 @@
+
+isso não vai ser a senha definitiva
+senhas: marcao123
+
+lucasmarcao@DESKTOP-9CPU3R9-BACON MINGW64 /d/Documentos Arquivos/centro_vs_code/slot_para_php/fitoclinic (main)
+$ php -r "echo password_hash('marcao123', PASSWORD_DEFAULT) . PHP_EOL;"
+$2y$12$qdyJTvVoaKXyhH4HYQJIreR4hJfYVEesitIk17CEZJH4QkH5y7Xa.
+
+USE fito_clinic;
+
+INSERT INTO usuarios (nome, email, senha_hash, papel, ativo) 
+VALUES 
+(
+    'Lucas Marcão', 
+    'lucas@gmail.com', 
+    '$2y$12$qdyJTvVoaKXyhH4HYQJIreR4hJfYVEesitIk17CEZJH4QkH5y7Xa.', 
+    'admin', 
+    1
+),
+(
+    'Rhayane Lopes', 
+    'rhayane@gmail.com', 
+    '$2y$12$qdyJTvVoaKXyhH4HYQJIreR4hJfYVEesitIk17CEZJH4QkH5y7Xa.', 
+    'admin', 
+    1
+)
+ON DUPLICATE KEY UPDATE 
+    senha_hash = VALUES(senha_hash),
+    papel = VALUES(papel),
+    ativo = VALUES(ativo);
+
+SELECT * FROM `usuarios`
