@@ -1,4 +1,4 @@
-# pra rodar:
+# pra rodar em /src/ :
 
 php -S localhost:8000
 
